@@ -1,0 +1,33 @@
+#win-run {
+    display: flex !important;
+    flex-direction: column;
+}
+
+#win-run>.top {
+    display: flex;
+    padding: 10px;
+}
+
+#win-run>.top>.icon {
+    min-width: 70px;
+    background-image: url('../../icon/run.svg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 10px;
+}
+
+#win-run>.open {
+    display: flex;
+    gap: 15px;
+    padding: 10px 20px 10px 20px;
+}
+
+#win-run>.open>input {
+    flex-grow: 1;
+    width: auto !important;
+}
+
+#win-run>.open>.prompt {
+    margin-top: 3px;
+}

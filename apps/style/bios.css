@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'dos';
+    src: url(../../fonts/dos.ttf);
+}
+
+body {
+    background-color: #aaaaaa;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+* {
+    font-family: 'dos';
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    cursor: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+::-webkit-scrollbar {
+    display: none;
+    /* Chrome Safari */
+}
+
+.tit {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #4ba7a8;
+    list-style-type: none;
+    margin: 0px;
+    padding: 5px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.pages {
+    background-color: #0100a2;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.page {
+    font-size: 110%;
+    color: #0100a2;
+    background-color: #aaaaaa;
+    margin: 5px;
+    padding: 5px;
+}
+
+.option {
+    border: none;
+}
+
+#mainPage,
+#exitPage {
+    margin: 20px;
+    padding: 20px;
+    border: 3.5px solid #000;
+    height: 100%;
+}
+
+.exit {
+    color: #0100a2;
+    padding: 5px;
+}
+
+/*.exit:hover{
+    color: #fff;
+}*/
+
+.confirm-button {
+    background-color: #fff;
+    color: #000;
+}
+
+/*.confirm-button:hover{
+    background-color: #000;
+    color: #fff;
+}*/
