@@ -1,0 +1,2904 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head></head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="./desktop.css">
+	<link rel="stylesheet" href="bootstrap-icons.css">
+	<!-- Apps style -->
+	<link rel="stylesheet" href="apps/style/setting.css">
+	<link rel="stylesheet" href="apps/style/explorer.css">
+	<link rel="stylesheet" href="apps/style/calc.css">
+	<link rel="stylesheet" href="apps/style/about.css">
+	<link rel="stylesheet" href="apps/style/notepad.css">
+	<link rel="stylesheet" href="apps/style/terminal.css">
+	<link rel="stylesheet" href="apps/style/edge.css">
+	<link rel="stylesheet" href="apps/style/camera.css">
+	<link rel="stylesheet" href="apps/style/pythonEditor.css">
+	<link rel="stylesheet" href="apps/style/run.css">
+	<link rel="stylesheet" href="apps/style/whiteboard.css">
+	<link rel="stylesheet" href="apps/style/defender.css">
+	<link rel="stylesheet" href="apps/style/taskmgr.css">
+	<link rel="stylesheet" href="widgets.css">
+	<!-- 掌声欢迎 Copilot 的 css 引入(bs -->
+	<link rel="stylesheet" href="apps/style/copilot.css">
+	<link rel="manifest" href="pwa/manifest.json">
+	<link rel="shortcut icon" href="./pwa/logo.png" type="image/x-icon">
+	<link rel="stylesheet" href="apps/style/login.css">
+	<!-- 各个模块 -->
+	<link rel="stylesheet" href="module/tab.css">
+	<base target="_blank">
+
+	<title>Windows 12 Demo</title>
+	<meta name="description" content="Windows 12 Web version is an open source project for online experience of Windows 12 operating system. It uses HTML, CSS and JavaScript to simulate the interface and interaction of Windows 12 operating system.。">
+	<meta name="keywords" content="Windows 12, Windows 12 Web, Windows 12 Online">
+	<meta name="keywords" content="Windows 12, Windows 12 Web, Windows 12 Online">
+</head>
+
+<body>
+	<audio src="media/startup.mp3" id="startup-music"></audio>
+	<div id="loadback" style="background-color:#000;width:100%;height:100%;z-index:105;position:absolute;transition:200ms;cursor: none;/*Loading interface hides mouse pointer*/">
+		<style>
+			#loadback.hide {
+				opacity: 0;
+			}
+			loading>svg>circle:last-child {
+				stroke: #fff;
+				fill: none;
+				stroke-width: 2px;
+				stroke-linecap: round;
+				animation: spin-infinite 2.5s linear 0s infinite normal none running;
+				transform-origin: 50% 50%;
+				transition: all .2s ease-in-out 0s;
+			}
+			loading>svg {
+				background-color: #00000000;
+				border-radius: 50%;
+			}
+			@keyframes spin-infinite {
+				0% {
+					stroke-dasharray: .01px, 43.97px;
+					transform: rotate(0deg)
+				}
+				50% {
+					stroke-dasharray: 21.99px, 21.99px;
+					transform: rotate(450deg)
+				}
+				to {
+					stroke-dasharray: .01px, 43.97px;
+					transform: rotate(3turn)
+				}
+			}
+		</style>
+		<svg id="loadbacksvg" viewBox="21,18,320,315" style="transition: 1s;opacity: 0;position: absolute;left: calc(50% - 125px);top:20%;" width="250" height="250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><filter id="fx0" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="5.81006 5.77778"/></filter><filter id="fx1" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="5.77778 5.77778"/></filter><filter id="fx2" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="7.36593 7.36776"/></filter><filter id="fx3" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.521569" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="6 6"/></filter><clipPath id="clip4"><rect x="468" y="169" width="362" height="356"/></clipPath><clipPath id="clip5"><rect x="-6.53632" y="-6.5" width="101.061" height="108"/></clipPath><clipPath id="clip6"><rect x="0" y="0" width="90" height="95"/></clipPath><linearGradient x1="525.053" y1="357.279" x2="645.947" y2="458.721" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill7"><stop offset="0" stop-color="#775CFE"/><stop offset="0.18" stop-color="#775CFE"/><stop offset="0.83" stop-color="#2473DC"/><stop offset="1" stop-color="#2473DC"/></linearGradient><clipPath id="clip8"><rect x="-6.5" y="-6.5" width="125" height="115"/></clipPath><clipPath id="clip9"><rect x="0" y="0" width="112" height="105"/></clipPath><linearGradient x1="511.623" y1="213.086" x2="642.377" y2="368.914" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill10"><stop offset="0" stop-color="#C45DD5"/><stop offset="0.18" stop-color="#C45DD5"/><stop offset="0.69" stop-color="#A266E4"/><stop offset="1" stop-color="#A266E4"/></linearGradient><clipPath id="clip11"><rect x="-7.53336" y="-7.53522" width="128.067" height="124.08"/></clipPath><clipPath id="clip12"><rect x="0" y="0" width="113" height="107"/></clipPath><linearGradient x1="617.245" y1="376.897" x2="771.755" y2="466.103" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill13"><stop offset="0" stop-color="#61A2F9"/><stop offset="0.18" stop-color="#61A2F9"/><stop offset="0.91" stop-color="#3159D7"/><stop offset="1" stop-color="#3159D7"/></linearGradient><clipPath id="clip14"><rect x="-6.5" y="-6.5" width="130" height="137"/></clipPath><clipPath id="clip15"><rect x="0" y="0" width="118" height="124"/></clipPath><linearGradient x1="643.458" y1="199.26" x2="791.542" y2="375.74" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill16"><stop offset="0" stop-color="#8A66FE"/><stop offset="0.19" stop-color="#8A66FE"/><stop offset="1" stop-color="#2473DC"/></linearGradient></defs><g clip-path="url(#clip4)" transform="translate(-468 -169)"><g clip-path="url(#clip5)" filter="url(#fx0)" transform="matrix(1.98889 0 0 2 499 310)"><g clip-path="url(#clip6)" transform="translate(2.84217e-14 0)"><path d="M71.8132 77.0858 26.981 77.0858C22.0288 77.0858 18.0143 73.1038 18.0143 68.1917L18.0143 19.9983C27.6747 18.8595 31.5867 17.632 40.5532 18.2527 49.5197 18.8734 62.1334 21.5426 71.8132 23.7225L71.8132 77.0858Z" fill="#FF0000" fill-rule="evenodd"/></g></g><path d="M639 467 549.834 467C539.984 467 532 459.036 532 449.212L532 352.825C551.213 350.547 558.994 348.093 576.827 349.334 594.661 350.575 619.748 355.914 639 360.273L639 467Z" fill="url(#fill7)" fill-rule="evenodd"/><g clip-path="url(#clip8)" filter="url(#fx1)" transform="matrix(2 0 0 2 468 189)"><g clip-path="url(#clip9)"><path d="M17.9142 86.9142 17.9142 29.4144C17.9142 23.063 23.0408 17.9142 29.3649 17.9142L87.6795 17.9142C91.3242 35.2574 94.0833 41.1006 93.9062 52.6006 93.729 64.1006 89.0466 75.4763 86.6168 86.9142 70.0706 84.6993 65.4194 82.6717 53.5245 82.4844 41.5652 82.296 29.7843 85.4376 17.9142 86.9142Z" fill="#FF0000" fill-rule="evenodd"/></g></g><path d="M501 360 501 245C501 232.298 511.253 222 523.901 222L640.531 222C647.82 256.686 653.338 268.373 652.984 291.373 652.63 314.373 643.265 337.124 638.405 360 605.313 355.57 596.01 351.515 572.221 351.14 548.302 350.764 524.74 357.047 501 360Z" fill="url(#fill10)" fill-rule="evenodd"/><g clip-path="url(#clip11)" filter="url(#fx2)" transform="matrix(1.99115 0 0 1.99065 579 312)"><g clip-path="url(#clip12)"><path d="M90.4862 22.6918 90.4862 74.1822C90.4862 79.8698 85.8764 84.4806 80.1899 84.4806L28.7099 84.4806C25.6989 69.2628 22.7773 68.0805 22.6877 54.0451 22.5938 39.3223 26.7026 33.1429 28.7099 22.6918L90.4862 22.6918Z" fill="#FF0000" fill-rule="evenodd"/></g></g><path d="M762 360 762 462.5C762 473.822 752.821 483 741.499 483L638.994 483C632.999 452.707 627.181 450.353 627.003 422.414 626.816 393.105 634.997 380.805 638.994 360L762 360Z" fill="url(#fill13)" fill-rule="evenodd"/><g clip-path="url(#clip14)" filter="url(#fx3)" transform="matrix(2 0 0 2 594 169)"><g clip-path="url(#clip15)"><path d="M18.7308 18.4142 86.1097 18.4142C93.5523 18.4142 99.5858 24.4663 99.5858 31.932L99.5858 99.5195C79.053 102.327 71.9105 106.654 58.5202 105.134L18.7308 99.5195C21.1161 80.9213 23.4541 75.8406 23.5014 62.3231 23.5527 47.6868 20.321 33.0505 18.7308 18.4142Z" fill="#FF0000" fill-rule="evenodd"/></g></g><path d="M639 203 769.833 203C784.285 203 796 214.752 796 229.248L796 360.486C756.13 365.937 742.262 374.34 716.261 371.389L639 360.486C643.632 324.373 648.171 314.508 648.263 288.26 648.363 259.84 642.088 231.42 639 203Z" fill="url(#fill16)" fill-rule="evenodd"/></g></svg>
+		<loading id="loadbackloading" style="transition:1s;opacity:0;">
+			<svg style="position:absolute;left:calc(50% - 25px);top:72%;" width="50px" height="50px" viewBox="0 0 16 16">
+				<circle cx="8px" cy="8px" r="7px"></circle>
+			</svg>
+			<p id="loadbackupdate" style="position:absolute;top:calc(72% + 55px);left:0;width:100%;text-align:center;color:#fff;font-size: 25px;display:none;">Updating</p>
+		</loading>
+		<script>
+			setTimeout(() => {
+				document.getElementById('loadbacksvg').style.opacity = 1;
+				document.getElementById('loadbackloading').style.opacity = 1;
+			}, 100);
+		</script>
+	</div>
+	<div id="loginback">
+		<div class="user"></div>
+		<div class="name">Administrator</div>
+		<div id="login" onclick="
+			this.id = 'login-after';
+			this.innerText = 'Logging in...';
+			document.querySelector('#loginback').removeChild(document.querySelector('#loginback .power'));
+			var qwq = window.setInterval(() => {
+				if (this.innerText.match(/\.\.\./)) {
+					this.innerText = 'Logging in.';
+				}
+				else {
+					this.innerText += '.';
+				}
+			}, 500);
+			window.setTimeout(() => {
+				this.style.transition = 'color 500ms';
+			}, 100);
+			window.setTimeout(() => {
+				$('#loginback').addClass('close');
+				window.setTimeout(() => {
+					$('#loginback').css('opacity', '0');
+				}, 500);
+				window.setTimeout(() => {
+					$('#loginback').css('display', 'none');
+					window.clearInterval(qwq);
+				}, 2000);
+				if(use_music){
+					document.querySelector('audio#startup-music').play();
+				}
+			}, 1000);
+			this.onclick = null;
+		">
+			Log in
+		</div>
+		<a class="power" onclick="$(this).addClass('show')">
+			<i class="bi bi-power" onclick="setTimeout(() => {window.location='shutdown.html';}, 200);" win12_title="Shut down"></i>
+			<i class="bi bi-arrow-counterclockwise" onclick="setTimeout(() => {window.location='reload.html';}, 200);" win12_title="Restart"></i>
+		</a>
+	</div>
+	<!-- <img src="https://bing.com/th?id=OHR.Trossachs_ZH-CN9299955040_UHD.jpg&qlt=100" alt=""> -->
+	<script src="./jq.min.js"></script>
+	<div id="start-menu">
+		<!-- 开始菜单 -->
+		<div id="s-m-l">
+			<div id="s-m-user">
+				<svg viewBox="0,0,257,344" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><clipPath id="user-clip0"><rect x="382" y="195" width="257" height="344" /></clipPath><linearGradient x1="351.462" y1="233.56" x2="669.496" y2="500.422" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="user-fill1"><stop offset="0" stop-color="#A964C8" /><stop offset="0.35" stop-color="#A964C8" /><stop offset="0.87" stop-color="#2D8AD5" /><stop offset="1" stop-color="#2D8AD5" /></linearGradient><linearGradient x1="351.462" y1="233.56" x2="669.496" y2="500.422" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="user-fill2"><stop offset="0" stop-color="#A964C8" /><stop offset="0.35" stop-color="#A964C8" /><stop offset="0.87" stop-color="#2D8AD5" /><stop offset="1" stop-color="#2D8AD5" /></linearGradient></defs><g clip-path="url(#user-clip0)" transform="translate(-382 -195)"><path d="M637.755 433.872C642.215 515.221 579.577 537.983 508.011 537.983 436.444 537.983 376.676 507.833 383.513 437.11 383.109 425.234 389.59 414.133 398.634 409.891 413.82 402.768 444.753 402.936 507.484 402.997 570.214 403.058 609.164 402.279 621.521 407.947 633.878 413.614 638.011 424.609 637.755 433.872Z" fill="url(#user-fill1)" fill-rule="evenodd" /><path d="M422 285C422 235.847 461.623 196 510.5 196 559.377 196 599 235.847 599 285 599 334.153 559.377 374 510.5 374 461.623 374 422 334.153 422 285Z" fill="url(#user-fill2)" fill-rule="evenodd" /></g></svg>
+			</div>
+			<p style="width: 100%;text-align: center;margin: -50px 0 20px 0;font-size: 30px;">Administrator</p>
+			<input type="text" class="input" win12_title="Search" placeholder="Enter what you are searching for here" onfocus="hide_startmenu();
+				$('#search-btn').addClass('show');
+				$('#search-win').addClass('show-begin');
+				setTimeout(() => {
+					$('#search-win').addClass('show');
+				}, 0);
+				$('#search-input').focus();">
+			<input-before class="bi bi-search"></input-before>
+			<list>
+				<p class="text">System</p>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['setting', 'Setting'])"
+					onclick="openapp('setting');hide_startmenu();">
+					<img src="icon/setting.svg">
+					<p>Setting</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['explorer', 'file explorer'])"
+					onclick="openapp('explorer');hide_startmenu();">
+					<img src="icon/explorer.svg">
+					<p>File Explorer</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['calc', 'calculator'])"
+					onclick="openapp('calc');hide_startmenu();">
+					<img src="icon/calc.svg">
+					<p>Caculator</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['run', '运行'])"
+					onclick="openapp('run');hide_startmenu();">
+					<img src="icon/run.svg">
+					<p>Run</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['about', '关于Win12网页版'])"
+					onclick="openapp('about');hide_startmenu();">
+					<img src="icon/about.svg">
+					<p>About</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['taskmgr', '任务管理器'])"
+					onclick="openapp('taskmgr');hide_startmenu();">
+					<img src="icon/taskmgr.png">
+					<p>Task Manager</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['notepad', '记事本'])"
+					onclick="openapp('notepad');hide_startmenu();">
+					<img src="icon/notepad.svg">
+					<p>Notepad</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['edge', 'Microsoft Edge'])"
+					onclick="openapp('edge');hide_startmenu();">
+					<img src="icon/edge.svg">
+					<p>Microsoft Edge</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['camera', '相机'])"
+					onclick="apps.camera.notice();hide_startmenu()">
+					<img src="icon/camera.svg">
+					<p>Camera</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['pythonEditor', 'Python Editor'])"
+					onclick="openapp('pythonEditor');hide_startmenu()">
+					<img src="icon/pythonEditor.svg">
+					<p>Python Editor</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['python', 'Python 3.10.2'])"
+					onclick="openapp('python');hide_startmenu()">
+					<img src="icon/python.svg">
+					<p>Python 3.10.2</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['terminal', '终端'])"
+					onclick="openapp('terminal');hide_startmenu();">
+					<img src="icon/terminal.svg">
+					<p>Terminal</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['whiteboard', 'Whiteboard'])"
+					onclick="openapp('whiteboard');hide_startmenu();">
+					<img src="icon/whiteboard.svg">
+					<p>Whiteboard</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['defender', 'Windows 安全中心'])"
+					onclick="openapp('defender');hide_startmenu();">
+					<img src="icon/defender.svg">
+					<p>Windows Defender</p>
+				</a>
+				<p class="text">Web Application</p>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['bilibili', '哔哩哔哩'])"
+					onclick="openapp('bilibili');hide_startmenu();">
+					<img src="icon/bilibili.png">
+					<p>Bilibili</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['vscode', 'Visual Studio Code'])"
+					onclick="openapp('vscode');hide_startmenu();">
+					<img src="icon/vscode.png">
+					<p>Visual Studio Code</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['wsa', '适用于 Android™️ 的 Windows 子系统'])"
+					onclick="openapp('wsa');hide_startmenu();">
+					<img src="icon/wsa.png">
+					<p>Windows Subsystem for Android™️</p>
+				</a>
+				<a oncontextmenu="return showcm(event, 'smlapp', ['windows12', 'Windows 12'])"
+					onclick="openapp('windows12');hide_startmenu();">
+					<img src="icon/logo.svg">
+					<p>Windows 12</p>
+				</a>
+			</list>
+		</div>
+		<div id="s-m-r">
+			<div class="row1">
+				<div class="folder">
+					<a class="a sm-app enable"
+						onclick="openapp('explorer');apps.explorer.goto('C:/Users/Administrator/Document');hide_startmenu();">
+						<img src="icon/folder/docs.svg">
+						<p>Documents</p>
+						<content class="Opic"></content>
+					</a>
+					<a class="a sm-app enable"
+						onclick="openapp('explorer');apps.explorer.goto('C:/Users/Administrator/Picture');hide_startmenu();">
+						<img src="icon/folder/pics.svg">
+						<p>Pictures</p>
+					</a>
+					<a class="a sm-app enable"
+						onclick="openapp('explorer');apps.explorer.goto('C:/Users/Administrator/Music');hide_startmenu();">
+						<img src="icon/folder/music.svg">
+						<p>Musics</p>
+					</a>
+				</div>
+				<div class="tool">
+					<p style="font-size: 40px;margin-bottom: -10px;" class="time">12:00</p>
+					<p class="date">Monday, 12 Nov 2023</p>
+					<a class="a btn btn-icon power" win12_title="Power" onclick="$(this).addClass('show')">
+						<span class="bi bi-power"></span>
+						<i class="bi bi-power" onclick="$('#start-menu').removeClass('show');
+						setTimeout(() => {window.location='shutdown.html';},200);" win12_title="Shut Down"></i>
+						<i class="bi bi-arrow-counterclockwise" onclick="$('#start-menu').removeClass('show');
+						setTimeout(() => {window.location='reload.html';},200);" win12_title="Restart"></i>
+					</a>
+					<a class="a btn btn-icon big" win12_title="Full-screen Mode" onclick="
+					if($('#start-menu').hasClass('max')){
+						$('#start-menu>#s-m-r>.row1>.tool>.btn-icon.big').html('<i class=\'bi bi-arrows-angle-expand\'></i>');
+						$('#start-menu').removeClass('max');
+					}else{
+						$('#start-menu>#s-m-r>.row1>.tool>.btn-icon.big').html('<i class=\'bi bi-arrows-angle-contract\'></i>');
+						$('#start-menu').addClass('max');
+					}
+					">
+						<i class="bi bi-arrows-angle-expand"></i>
+					</a>
+				</div>
+			</div>
+			<div class="pinned">
+				<!-- 已固定 卡片 -->
+				<div class="title">
+					<p>Pinned</p>
+					<div>
+						<a class="a more-btn">All <i class="bi bi-chevron-right"></i></a>
+						<!-- 这个好像没什么必要 -->
+					</div>
+				</div>
+				<div class="apps">
+					<a class="a sm-app enable calc" onclick="openapp('calc');hide_startmenu();"
+						oncontextmenu="return showcm(event,'smapp',['calc','calculator'])">
+						<img src="icon/calc.svg">
+						<p>Caculator</p>
+					</a>
+					<a class="a sm-app enable camera" onclick="apps.camera.notice();hide_startmenu();"
+						oncontextmenu="return showcm(event,'smapp',['camera', 'camera'])">
+						<img src="icon/camera.svg">
+						<p>Camera</p>
+					</a>
+					<a class="a sm-app enable" onclick="shownotice('feedback');">
+						<img src="icon/feedback.svg">
+						<p>Feedback</p>
+					</a>
+					<a class="a sm-app enable defender" onclick="openapp('defender');hide_startmenu();"
+						oncontextmenu="return showcm(event,'smapp',['defender','Windows Defender'])">
+						<img src="icon/defender.svg">
+						<p>Windows Defender</p>
+					</a>
+					<a class="a sm-app enable about" onclick="openapp('about');hide_startmenu();"
+						oncontextmenu="return showcm(event,'smapp',['about','About Win12 Web version'])">
+						<img src="icon/about.svg">
+						<p>About Windows 12</p>
+					</a>
+					<a class="a sm-app enable explorer" onclick="openapp('explorer');hide_startmenu();"
+						oncontextmenu="return showcm(event,'smapp',['explorer','file explorer'])">
+						<img src="icon/explorer.svg">
+						<p>File Explorer</p>
+					</a>
+					<a class="a sm-app enable notepad" onclick="openapp('notepad');hide_startmenu();"
+						oncontextmenu="return showcm(event,'smapp',['notepad','notepad'])">
+						<img src="icon/notepad.svg">
+						<p>Notepad</p>
+					</a>
+					<a class="a sm-app enable setting" onclick="openapp('setting');hide_startmenu();"
+						oncontextmenu="return showcm(event,'smapp',['setting','setting'])">
+						<img src="icon/setting.svg">
+						<p>Setting </p>
+					</a>
+					<a class="a sm-app"><img src="icon/store.svg">
+						<p>Microsoft Store</p>
+					</a>
+					<a class="a sm-app enable edge" onclick="openapp('edge');hide_startmenu();"
+						oncontextmenu="return showcm(event,'smapp',['edge','Microsoft Edge'])">
+						<img src="icon/edge.svg">
+						<p>Microsoft Edge</p>
+					</a>
+					<a class="a sm-app enable" onclick="openapp('windows12');hide_startmenu();"
+						oncontextmenu="return showcm(event,'smapp',['windows12','Windows 12'])">
+						<img src="icon/logo.svg">
+						<p>Windows 12</p>
+					</a>
+					<a class="a sm-app enable terminal" onclick="openapp('terminal');hide_startmenu();"
+						oncontextmenu="return showcm(event,'smapp',['terminal','终端'])">
+						<img src="icon/terminal.svg">
+						<p>Terminal</p>
+					</a>
+				</div>
+			</div>
+			<div class="tuijian">
+				<!-- 推荐的项目 卡片 -->
+				<div class="title">
+					<p>Suggested File</p>
+					<div>
+						<a class="a more-btn">More<i class="bi bi-chevron-right"></i></a>
+					</div>
+				</div>
+				<div class="apps">
+					<a class="a tj-obj act"><img src="icon/files/ppt.png"><div><p>Slide1.pptx</p><p>5 minute(s) ago</p></div></a>
+					<a class="a tj-obj act"><img src="icon/files/img.png"><div><p>Picture1.jpg</p><p>7 minute(s) ago</p></div></a>
+					<a class="a tj-obj act"><img src="icon/files/img.png"><div><p>Picture2.jpg</p><p>16 minute(s) ago</p></div></a>
+					<a class="a tj-obj act"><img src="icon/files/word.png"><div><p>Doc1.docx</p><p>24 minute(s) ago</p></div></a>
+					<a class="a tj-obj act"><img src="icon/files/excel.png"><div><p>Exx1.xlsx</p><p>35 minute(s) ago</p></div></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="search-win">
+		<!-- 搜索框 -->
+		<input type="text" class="input" placeholder="Enter what you are searching for" id="search-input"
+			oninput="apps.search.search(this.value.length)">
+		<input-before class="bi bi-search"></input-before>
+		<div class="tab">
+			<a class="now">All</a><a>Apply</a><a>Documentation</a><a>Web page
+			</a>
+			<a>E-mail</a><a>Person</a><a>Setting</a><a>Video</a>
+			<a>Folder</a><a>Music</a><a>Photo</a>   
+		</div>
+		<div class="ans">
+			<div class="list">
+				<list>
+					<p class="text">Suggest</p>
+					<a onclick="openapp('setting');$('#search-btn').removeClass('show');
+					$('#search-win').removeClass('show');
+					setTimeout(() => {
+						$('#search-win').removeClass('show-begin');
+					}, 200);">
+						<img src="icon/setting.svg">
+						<p>Setting</p>
+					</a>
+					<a onclick="openapp('about');$('#search-btn').removeClass('show');
+					$('#search-win').removeClass('show');
+					setTimeout(() => {
+						$('#search-win').removeClass('show-begin');
+					}, 200);">
+						<img src="icon/about.svg">
+						<p>About Windows 12</p>
+					</a>
+				</list>
+			</div>
+			<div class="view">
+				<div class="fname">
+					<i class="bi bi-search"></i>
+					<p class="name"></p>
+					<p class="type"></p>
+				</div>
+				<hr>
+				<div class="option">
+					<list>
+						<a class="a">Open</a>
+						<a class="a">Open file location</a>
+						<a class="a">Copy the path</a>
+					</list>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="widgets">
+		<div class="widgets">
+			<div class="bar">
+				<p class="tit">Widget</p>
+				<button onclick="shownotice('widgets')" class="a act btn btn-icon big"
+					style="background: linear-gradient(100deg, var(--theme-1), var(--theme-2));color:#fff;"
+					win12_title="添加"><i class="bi bi-plus-lg"></i></button>
+			</div>
+			<div class="content">
+				<div class="template">
+					<div class="calc">
+						<div class="wg calc">
+							<div class="titbar">
+								<a win12_title="More" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" class="a more notip" onclick="$('.wg.calc>.titbar>.menu').toggleClass('show')"><i class="bi bi-three-dots"></i></a>
+								<div class="menu"> ]]+
+									<a win12_title="Open app" class="a img openapp" onclick="$('.wg.calc>.titbar>.menu').removeClass('show');hide_widgets();openapp('calc')" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)">
+										<img src="icon/calc.svg">
+									</a>
+									<a class="a move" win12_title="Move" onmouseenter="showdescp(event)" onclick="if (!edit_mode) { editMode(); }" onmouseleave="hidedescp(event)"><i class="bi bi-arrows-move"></i></a>
+									<a class="a addtodt" win12_title="Add to Desktop" onmouseenter="showdescp(event)" onclick="widgets.widgets.addToDesktop('calc')" onmouseleave="hidedescp(event)"><i class="bi bi-box-arrow-in-right"></i></a>
+									<a class="a delete" win12_title="Delete" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" onclick="$('.wg.calc>.titbar>.menu').removeClass('show');widgets.widgets.remove('calc')"><i class="bi bi-trash"></i></a>
+								</div>
+							</div>
+							<div class="content" onmousedown="widgetsMove(this.parentElement, event);" ontouchstart="widgetsMove(this.parentElement, event);">
+								<div class="container">
+									<input id="calc-input-widgets" readonly="true" value="0" onkeydown="
+									switch (event.key) {
+										case '+':
+											widgetCalculator.func_key(1);
+											widgetCalculator.check($('*:not(.template)>*>.wg.calc>.content>.jia')[0]);
+											break;
+										case '-':
+											widgetCalculator.func_key(2);
+											widgetCalculator.check($('*:not(.template)>*>.wg.calc>.content>.jian')[0]);
+											break;
+										case '*':
+											widgetCalculator.func_key(3);
+											widgetCalculator.check($('*:not(.template)>*>.wg.calc>.content>.cheng')[0]);
+											break;
+										case '/':
+											widgetCalculator.func_key(4);
+											widgetCalculator.check($('*:not(.template)>*>.wg.calc>.content>.chu')[0]);
+											break;
+										case '=':
+											widgetCalculator.eq();
+											break;
+										case 'Enter':
+											widgetCalculator.eq();
+											break;
+										case 'Backspace':
+											widgetCalculator.backspace();
+											break;
+										case '.':
+											widgetCalculator.point();
+											break;
+									}
+									if (!isNaN(event.key)) {
+										widgetCalculator.number_key(Number(event.key));
+									}
+								"></input>
+								</div>
+								<a style="grid-area: pow;" class="b" onclick="widgetCalculator.square()">𝑥²</a>
+								<a style="grid-area: sqrt;" class="b" onclick="widgetCalculator.squareRoot()">√𝑥</a>
+								<a style="grid-area: c;" class="b" onclick="widgetCalculator.clear_num()">C</a>
+								<a style="grid-area: jia;" class="b u jia" onclick="widgetCalculator.func_key(1); widgetCalculator.check(this);">+</a>
+								<a style="grid-area: n7;" class="b" onclick="widgetCalculator.number_key(7);">7</a>
+								<a style="grid-area: n8;" class="b" onclick="widgetCalculator.number_key(8);">8</a>
+								<a style="grid-area: n9;" class="b" onclick="widgetCalculator.number_key(9);">9</a>
+								<a style="grid-area: jian;" class="b u jian" onclick="widgetCalculator.func_key(2); widgetCalculator.check(this);">-</a>
+								<a style="grid-area: n4;" class="b" onclick="widgetCalculator.number_key(4);">4</a>
+								<a style="grid-area: n5;" class="b" onclick="widgetCalculator.number_key(5);">5</a>
+								<a style="grid-area: n6;" class="b" onclick="widgetCalculator.number_key(6);">6</a>
+								<a style="grid-area: cheng;" class="b u hceng" onclick="widgetCalculator.func_key(3); widgetCalculator.check(this);">×</a>
+								<a style="grid-area: n1;" class="b" onclick="widgetCalculator.number_key(1);">1</a>
+								<a style="grid-area: n2;" class="b" onclick="widgetCalculator.number_key(2);">2</a>
+								<a style="grid-area: n3;" class="b" onclick="widgetCalculator.number_key(3);">3</a>
+								<a style="grid-area: chu;" class="b u chu" onclick="widgetCalculator.func_key(4); widgetCalculator.check(this);">÷</a>
+								<a style="grid-area: dot;" class="b" onclick="widgetCalculator.point()">.</a>
+								<a style="grid-area: n0;" class="b" onclick="widgetCalculator.number_key(0);">0</a>
+								<a style="grid-area: back;" class="b" onclick="widgetCalculator.backspace()"><i class="bi bi-backspace"></i></a>
+								<a style="grid-area: ans;" class="b ans u" onclick="if(!widgetCalculator.eq()){widgetCalculator.clear_num(); shownotice('ZeroDivision')}">=</a>
+							</div>
+						</div>
+					</div>
+					<div class="weather">
+						<div class="wg weather">
+							<div class="titbar">
+								<a win12_title="更多" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" class="a more notip" onclick="$('.wg.weather>.titbar>.menu').toggleClass('show')"><i class="bi bi-three-dots"></i></a>
+								<div class="menu">
+									<a class="a move" win12_title="Move" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" onclick="if (!edit_mode) { editMode() }"><i class="bi bi-arrows-move"></i></a>
+									<a class="a addtotb" win12_title="Add to taskbar" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" onclick="widgets.widgets.addToToolbar('weather')"><i class="bi bi-menu-app"></i></a>
+									<a class="a addtodt" win12_title="Add to desktop" onmouseenter="showdescp(event)" onclick="widgets.widgets.addToDesktop('weather')" onmouseleave="hidedescp(event)"><i class="bi bi-box-arrow-in-right"></i></a>
+									<a class="a delete" win12_title="Delete" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" onclick="$('.wg.weather>.titbar>.menu').removeClass('show');widgets.widgets.remove('weather')"><i class="bi bi-trash"></i></a>
+								</div>
+							</div>
+							<div class="content" onmousedown="widgetsMove(this.parentElement, event);" ontouchstart="widgetsMove(this.parentElement, event);">
+								<img class="img" />
+								<div class="text">
+									<p class="temperature">--℃</p>
+									<p class="detail">-- Sensible temperature --℃</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="monitor">
+						<div class="wg monitor">
+							<div class="titbar">
+								<a win12_title="更多" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" class="a more notip" onclick="$('.wg.monitor>.titbar>.menu').toggleClass('show')"><i class="bi bi-three-dots"></i></a>
+								<div class="menu">
+									<a class="a chose" win12_title="Switch monitor type" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" onclick="shownotice('widgets.monitor')"><i class="bi bi-arrow-left-right"></i></a>
+									<a class="a move" win12_title="Move" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" onclick="if (!edit_mode) { editMode(); }"><i class="bi bi-arrows-move"></i></a>
+									<a class="a addtotb" win12_title="Add to Taskbar" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" onclick="widgets.widgets.addToToolbar('monitor')"><i class="bi bi-menu-app"></i></a>
+									<a class="a addtodt" win12_title="Add to Desktop" onmouseenter="showdescp(event)" onclick="widgets.widgets.addToDesktop('monitor')" onmouseleave="hidedescp(event)"><i class="bi bi-box-arrow-in-right"></i></a>
+									<a class="a delete" win12_title="Delete" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)" onclick="$('.wg.monitor>.titbar>.menu').removeClass('show');widgets.widgets.remove('monitor')"><i class="bi bi-trash"></i></a>
+								</div>
+							</div>
+							<div class="content" onmousedown="widgetsMove(this.parentElement, event);" ontouchstart="widgetsMove(this.parentElement, event);">
+								<div class="container">
+									<svg width="60px" height="60px">
+										<circle cx="30px" cy="30px" r="26px"></circle>
+										<circle cx="30px" cy="-30px" r="26px"></circle>
+									</svg>
+									<div class="text">
+										<div class="value">50%</div>
+									</div>
+								</div>
+								<div class="text">
+									<p class="type">Memory</p>
+									<p class="value">50%</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grid">
+
+				</div>
+			</div>
+		</div>
+		<span class="hr"></span>
+		<div class="news">
+			<div class="bar">
+				<p class="tit">News</p>
+				<p style="color: #7f7f7f;margin-right: 5px;margin-top: 2px;">Note: None of the news content is true </p>
+			</div>
+			<div class="content">
+				<div class="card" style="grid-column: 1/6;grid-row: 1/3;color: #fff;background: var(--bgul);background-position:0 -278px;background-size: 100%;">
+					<p class="tit" style="font-size: 20px;margin: 90px 0 0 30px;text-shadow: 0 0 8px #000;">Windows12 v6.0 Release</p>
+					<a class="a" style="margin: 5px 0 0 50px;font-size: 17px;color: #9dd0fb;text-shadow: 0 0 3px #000;" onclick="hide_widgets();
+					openapp('about');if($('.window.about').hasClass('min'))minwin('about');
+					$('#win-about>.about').removeClass('show');$('#win-about>.update').addClass('show');
+					$('#win-about>.update>div>details:first-child').attr('open','open')">Details ></a>
+				</div>
+				<div class="card"
+					style="grid-column: 4/6;grid-row: 7/9;background:url(img/win13.jpg) right;background-size: cover;">
+					<p class="tit" style="margin: 70px 0 0 10px;color: #fff;">Windows13 About to be released, official revealed: It will come with Macos subsystem</p>
+					<a class="a"
+						style="margin: 5px 0 0 80px;font-size: 17px;color: #9dd0fb;text-shadow: 0 0 3px #000;">Details
+						></a>
+				</div>
+				<div class="card"
+					style="grid-column: 4/6;grid-row: 3/5;background:linear-gradient(#00000000,var(--bg) 70%),url(img/win11.jpg) center;background-size: cover;">
+					<p class="tit" style="margin: 100px 0 0 10px;">Windows11 Support will end next week</p>
+					<a class="a" style="margin: 5px 0 0 80px;font-size: 17px;">Details ></a>
+				</div>
+				<div class="card"
+					style="grid-column: 1/3;grid-row: 5/7;background:linear-gradient(#00000000,#111 80%),url(img/corsiri.svg) bottom;background-size: 150%;">
+					<p class="tit" style="margin: 80px 0 0px 10px;color: #fff;">Microsoft will finally regain Cortana in 2029. Microsoft employees revealed that it will be integrated with Siri</p>
+					<a class="a" style="margin: 0 0 0 80px;font-size: 17px;color: #9dd0fb;">Details ></a>
+				</div>
+				<div class="card"
+					style="grid-column: 1/4;grid-row: 7/9;background:linear-gradient(#00000000,#111 90%),url(img/wsm.png) left;background-size: 120%;">
+					<p class="tit" style="margin: 100px 0 0px 10px;color: #fff;">Released by Microsoft Windows Subsystem for MacOS</p>
+					<a class="a" style="margin: 0 0 0 170px;font-size: 17px;color: #9dd0fb;">Details ></a>
+				</div>
+				<div class="card" style="grid-column: 3/6;grid-row: 5/7;background:linear-gradient(#00000000 0 30%,var(--bg) 70%),url(img/mc.jpg) bottom;background-size: cover;">
+					<p class="tit" style="margin: 100px 0 -20px 10px;">Early this morning, Minecraft handed over the agency rights to Chinese astronaut Tan Jingyuan, and NetEase was defeated.?</p>
+					<a class="a" style="margin: 0 0 0 170px;font-size: 17px;">Details ></a>
+				</div>
+				<div class="card" style="grid-column: 1/4;grid-row: 3/5;background:linear-gradient(#00000000 0 30%,var(--bg) 80%),url(img/yq.jpg) center;background-size: cover;">
+					<p class="tit" style="margin: 120px 0 -20px 10px;">Chinese astronaut Tan Jingyuan successfully landed on the moon yesterday afternoon </p>
+					<a class="a" style="margin: 0 0 0 150px;font-size: 17px;">Details ></a>
+				</div>
+				<div class="card" style="grid-column: 3/6;grid-row: 9/11;background:linear-gradient(#00000000 0 30%,var(--bg) 80%),url(img/office.png) center;background-size: cover;">
+					<p class="tit" style="margin: 100px 0 0 10px;">Microsoft releases voice-activated Office suite that allows users to edit files using their voice</p>
+					<a class="a" style="margin: 0 0 0 160px;font-size: 17px;">Details></a>
+				</div>
+				<div class="card"
+					style="grid-column: 1/4;grid-row: 11/13;background:linear-gradient(#00000000,var(--bg) 70%),url(img/earth.webp) center;background-size: cover;">
+					<p class="tit" style="margin: 100px 0 0 10px;">The Wandering Earth 4 first trailer released</p>
+					<a class="a" style="margin: 5px 0 0 160px;font-size: 17px;">Details ></a>
+				</div>
+				<div class="card" style="grid-column: 1/3;grid-row: 9/11;background:#171b22;">
+					<p class="tit" style="font-size: 19px;margin: 50px 0 0 10px;color: #fff;">Want to add more fantastic ideas to the news?
+						<br />Please submit it on github</p>
+					<a class="a" win12_title="https://github.com/ltt"
+						style="margin: 10px 0 0 70px;font-size: 17px;color: #9dd0fb" onclick="
+					window.open('https://github.com/ltt','_blank');">Submit issues ></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="copilot">
+		<div class="titbar">
+			<p class="text">Windows 12 Copilot</p>
+			<div class="alr">
+				<span class="btn about" onclick="shownotice('about-copilot')">
+					<i class="bi bi-info-circle"></i>
+				</span>
+				<span class="btn hide" onclick="$('#copilot').removeClass('show')">
+					<i class="bi bi-chevron-bar-right"></i>
+				</span>
+			</div>
+		</div>
+		<div class="chat">
+			<a class="a btn button" onclick="copilot.init()">Start a conversation</a>
+			<p style="margin-top: 20px;">Note: There is currently a small problem in the backend, and it is highly likely that it cannot be used. If it can be used, you will be lucky.。</p>
+		</div>
+		<div class="inputbox disable">
+			<input type="text" class="input" onkeydown="if(event.keyCode==13){copilot.send($(this).val());$(this).val('');this.blur()}">
+			<a class="a send btn" onclick="copilot.send($('#copilot>.inputbox>.input').val());$('#copilot>.inputbox>.input').val('');">Send</a>
+		</div>
+	</div>
+	<div id="control">
+		<div class="cont">
+			<div class="top">
+				<div class="btn1">
+					<div class="icon active" onclick="controlStatus.call(this, 'wifi')">
+						<icon class="s-icon"></icon>
+					</div>
+					<div class="tit">WLAN</div>
+				</div>
+				<div class="btn2">
+					<div class="icon active" onclick="controlStatus.call(this)">
+						<icon class="s-icon"></icon>
+					</div>
+					<div class="tit">Bluetooth</div>
+				</div>
+				<div class="btn3">
+					<div class="icon" onclick="controlStatus.call(this)">
+						<icon class="s-icon"></icon>
+					</div>
+					<div class="tit">Airplane mode</div>
+				</div>
+				<div class="btn4">
+					<div class="icon" onclick="controlStatus.call(this)">
+						<icon class="s-icon"></icon>
+					</div>
+					<div class="tit">Night mode</div>
+				</div>
+				<div class="btn5">
+					<div class="icon" onclick="controlStatus.call(this)">
+						<icon class="s-icon"></icon>
+					</div>
+					<div class="tit">Mobile hotspot</div>
+				</div>
+				<div class="btn6">
+					<div class="icon" onclick="controlStatus.call(this)">
+						<icon class="s-icon"></icon>
+					</div>
+					<div class="tit">Accessibility</div>
+				</div>
+			</div>
+			<div class="bottom">
+				<div class="brightness">
+					<div class="icon">
+						<icon class="s-icon"></icon>
+					</div>
+					<div class="range-container" onmousedown="dragBrightness(event)" ontouchstart="dragBrightness(event)">
+						<div class="after"></div>
+						<div class="slider-btn"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="datebox">
+		<div class="tit">
+			<p class="time">12:29:19</p>
+			<p class="date">Week一, September 22, 2022</p>
+			<hr>
+		</div>
+		<div class="cont">
+			<div class="head">
+				<p>One</p><p>Two</p><p>Three</p><p>Four</p><p>Five</p><p>Six</p><p >Day</p>
+			</div>
+			<div class="body">
+			</div>
+		</div>
+	</div>
+	<div id="dock-box">
+		<!-- Dock(任务)栏 -->
+		<div class="dock dock-start">
+			<a class="dock-btn" id="start-btn" win12_title="开始" onclick="
+				if($('#start-menu').hasClass('show')){
+					hide_startmenu();
+				}
+				else{
+					$('#start-btn').addClass('show');
+					if($('#search-win').hasClass('show')){
+						$('#search-btn').removeClass('show');
+						$('#search-win').removeClass('show');
+						setTimeout(() => {
+							$('#search-win').removeClass('show-begin');
+						}, 200);
+						hide_widgets();
+					}
+					if($('#widgets').hasClass('show'))hide_widgets();
+					$('#start-menu').addClass('show-begin');
+					setTimeout(() => {
+						$('#start-menu').addClass('show');
+					}, 0);
+				}" oncontextmenu="return showcm(event,'winx',null)">
+				<!-- 开始按钮 -->
+				<svg class="menu" viewBox="0,0,440,439" xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
+					<defs>
+						<clipPath id="clip-start1">
+							<rect x="134" y="59" width="440" height="439" />
+						</clipPath>
+					</defs>
+					<g clip-path="url(#clip-start1)" transform="translate(-134 -59)">
+						<path
+							d="M233.479 67.5001 475.521 67.5001C525.767 67.5001 566.5 108.233 566.5 158.479L566.5 490.5 142.5 490.5 142.5 158.479C142.5 108.233 183.233 67.5001 233.479 67.5001Z"
+							stroke="#7F7F7F" stroke-width="14.6667" stroke-linecap="round" stroke-miterlimit="8"
+							fill="#A6A6A6" fill-rule="evenodd" style="fill: var(--bg70);" />
+						<path d="M208.5 132.5 334.716 132.5" stroke="#888" stroke-width="14.6667" stroke-linecap="round"
+							stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+						<path d="M208.5 175.5 386.34 175.5" stroke="#888" stroke-width="14.6667" stroke-linecap="round"
+							stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+						<path d="M208.5 221.5 271.608 221.5" stroke="#888" stroke-width="14.6667" stroke-linecap="round"
+							stroke-miterlimit="8" fill="none" fill-rule="evenodd" />
+					</g>
+				</svg>
+				<img src="icon/logo.svg" class="ico">
+			</a>
+			<a class="dock-btn" id="search-btn" win12_title="搜索" onclick="
+			if ($('#search-win').hasClass('show')) {
+				$('#search-btn').removeClass('show');
+				$('#search-win').removeClass('show');
+				setTimeout(() => {
+					$('#search-win').removeClass('show-begin');
+				}, 200);
+			}
+			else {
+				$('#search-btn').addClass('show');
+				if($('#start-menu').hasClass('show'))hide_startmenu();
+				if($('#widgets').hasClass('show'))hide_widgets();
+				$('#search-win').addClass('show-begin');
+				setTimeout(() => {
+					$('#search-win').addClass('show');
+				}, 0);
+				$('#search-input').focus();
+			}">
+				<svg class="out" width="26" height="26" viewBox="0,0,228,229" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><clipPath id="clip-search-out-0"><rect x="548" y="268" width="228" height="229"/></clipPath><linearGradient x1="738.799" y1="300.076" x2="608.064" y2="486.786" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill-search-out-1"><stop offset="0" stop-color="#A6A6A6"/><stop offset="0.18" stop-color="#A6A6A6"/><stop offset="0.91" stop-color="#595959"/><stop offset="1" stop-color="#595959"/></linearGradient></defs><g clip-path="url(#clip-search-out-0)" transform="translate(-548 -268)"><path d="M640 268.696C690.41 268.696 731.276 309.574 731.276 360 731.276 378.91 725.529 396.477 715.687 411.049L713.816 413.318 771.4 470.903C777.068 476.571 777.068 485.761 771.4 491.429 765.732 497.097 756.542 497.097 750.874 491.429L693.292 433.847 691.033 435.711C676.465 445.556 658.904 451.305 640 451.304 589.59 451.305 548.724 410.426 548.724 360 548.724 309.574 589.59 268.696 640 268.696Z" fill="url(#fill-search-out-1)" fill-rule="evenodd"/></g></svg>
+				<svg class="in" width="20" height="20" viewBox="0,0,134,134" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><clipPath id="clip-search-in-0"><rect x="573" y="293" width="134" height="134"/></clipPath><linearGradient x1="611.068" y1="280.509" x2="668.932" y2="439.491" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill-search-in-1"><stop offset="0" stop-color="#82CDF6"/><stop offset="0.18" stop-color="#82CDF6"/><stop offset="0.91" stop-color="#4297D6"/><stop offset="1" stop-color="#4297D6"/></linearGradient><image width="132" height="132" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAMAAABmmnOVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFZUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKhZnwEAAABzdFJOUwABAgMEBQYHCAkKCwwNDg8QERITFBUWFxgZGhscHR4fICEiIyQlJicoKSorLC0uLzAxMjM0NTY3ODk6Ozw9Pj9AQUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVpbXF1eX2BhYmNkZWZnaGlqa2xtbm9wcXJv0gLZAAAACXBIWXMAAA7DAAAOwwHHb6hkAAARAklEQVR4XsWb91caWRTH2TQbFjoMvUlHmoKggihiw94Su8ZojInZ/P8/7Pfe9wZI1wjZ7zm7x8AM8zm3vpl5V/OHGvSMlde3tk5OLm9vzw8P19ZWpuMurfzyL2gotvjm5u7D+5vr63dXV28vLy+ELi/fnm6VRwflYd3TQKh2/unu9j0uf3lxfnZ6cnJ8fHR0yDo6Oj4+OT0735vy98vDu6CRscYtCG6uAXB2enx0+PrgYH9/b3d3h7S7u7u3v3/w+vDo+OTNbLgrBnkVnD+/B8G7txdnJ8e4/t7u9tbmxsb6+lpDaG1tfX1jc2sbLAdvjjYn3S/lqZ3Si+zV548f3l8TwdGbg72drY31xurK8tLiYr2+sLBQq+F/9fri0vLKagMo27v7rw83o8/l6Z2QPn94//HDzbvL85Oj1/u725vrjZWl+kJtvlqdrZTL5RlWuVyZna3O1xbqS8uraxtbO3sHy4kR+RNPVV/pw/3H25ury7Pjw4Pd7Y211eXFhflqpTwzVSoWJwuFPDSRzxcKk8ViaWqmXKnO1epLK431rZ397Uyf/JmnqDd3+vnj7fXVxSmMsLO5trpUr83NlqdLxUJ+YjyXzaTT6RQpnc5kstnceL4wCZJKdX5hcaWxsbW7En0yRnDj308fbhhhb3ujsVyvVSszU8XCRC6bTo0lE/FYLEqK4L9YPJ5IjqXSGZBMFqfLs/MLSytrmzszLvljfybT7O393ft3cAQhrC4tzFVmSpP58Wx6DJePhEOjwUAg4Gfhj2BwNBSORGOJZCqTnSiAo1qDOTY3Mnr5g38g7y15QiCsA6Fani7mxzOpJAHg+n6f1+N2u11C+Mvj9fr8gWAoHI0nxjK5icnSzOx8fbmxsW6XP/lYaafv7u9urs5P3jBCrVqempzIppPxKABwfbfL6XDYFUWxSSmK3e5wOl0ery8wGorEEqnMeL44XZlbWG6sJ/+oijrXvnz6cP327OhgB44AQqkwnhlLgMDv87iduLzNarGYTSaTUZXJZLZYrDbF7gCIPxiKxJOp7MTkVGWuvrJWMMsffoTGkBTv313ADFtry3DEFCHEo6Ggz+NyEgAubzTo9TqdbkSVTqc3GIxGM0CIA/YIRxPAKE7Pzi+uVr3ypx+qZ8V7uEKYYWVxvjI1SQiR0YDP7XIoVhgAALqR4eHhoaGhQVVDQ8PDQNEbjCYzOJxumIMwcvniTLW2tBr+R/78g9Rb+XL/4fry9BBmWKrNTk9OMILfCwKbRQLg4toBqL+pgQGtVguWYQIBhwIOXzAUTaZzhVJ5rr4aeyUv8AAN1b58uiVX7G6uLs6VS/ksI3icdiZgAC0u3tfX+436+vrAIkDAYbEqhBGOJTPjk9OzC8vJBxcu48q/YDg/PthZX1mozsATyWgoACsQAmxABAP9AOiBXrWLPgAJcwgMs9Xu9PhHI/FUNj9VmV9KD8mL/EavDv/9+P7q/Ohge225NjtVyKbi4aDP7VAsJoMeRlAJcNGXpBdS/I+XjAKLMAfcYrTY7C5vAD7JTBRn5urFF/Iyv9QQ7EAM+1uNpflyaYLMAE8Qgo4IyAkwAF/8udAzSP4pYAQIccAcRrPN4YJP4qlcYbpaTz3AI701ssMZMSzOzRTH04kImcFmNurhB9UGhEDXpMu3qwUCDsYYGtYZTAgNjz8UG8sWpmYX4r9d7Dwrf4EdzpAWq/Xq9GQuFQsFYAYrmYERWkYQl/2nTeITJgGHxIBT2Bhu3yhcki9Var/N1CLyAr7Y2wQDwiEZHZVmGB7UEgKM0CSQl5ZnauQ/mYNIyBw9PYQhjeENhhPpCVAE5Bk/0dj9PfICviCGfDYZCXpdMAM8oR0gBOEGuoi8pDxPSn5IYgxwkDXgEzaGJ4DAGC+Wq055/A/lPLn/oDJM5zPEgIikaGAzfIfwnV3lxyRhDXilp1cYg1ziDzHF5C9au3bt8931xfHBVoPskEFIepw2M0cDmwEIRMAI8pSfqokBp/T2IUBH9CarHRQxokj2yMO+1/SXjzeXJwfbjUVmCAc8DuGK/iYCXf/3BCw6UGCoxjBa7C7fKFFUfhoW8btP79+evtlZW5qbRkxGmMEwgohkBnIEIzyMQaV4Jij6mhSwxURpWpEHfaPeWwTE2eHu+vL8zCTFpMdhgx2QmL0UkJJBHvwgqRSMgfhkCooL5MjUjyvnLAUEknOlVi7mmAG+oHBQzfBYBjVOVWMgS1oUUz90SPD2483bk4Ot1YXZ0ngqirz4hoF+Tx77YDEEU7xAsrItKDrDiUyhaJLHtKl34/726gwBgaCcSMdGvU4bxcPTGL6iYFsM60xW1ItIMjcZ+7585/69u0al3FiamylkEiGfSzFTPDyRQaiNYnAYmerwBKNj46XvSlYfMgPZuYWAoKAMuBVLB+ygiikoMMgWepPN6R2NpScK38Zm6TMyg5whAgJBadShPnSGoWmLlz3I1BGDWXEhLLIFj/xWSn+KMnW8t7E8j2odD/kQEPph1IcOMbR5pG9ApEgADkl/fS+Sp6h8vb26UIEzwn43B0QHGVQKqhdIVIQFOST/VVQMH36kErG+hMwYE84YGRpAx+oYQ4uCw8JsY4cke+WXpBwMcfp6axVRqTpjSEtB2TmGJoUIC4sdGZIaby/eVx9vLlCvUSLGxygzzAY1IDrHwBRIEeqpCAur0xuKZ9LyKyj4+cPVKaUnSkR81OuwGHWUnR1mEBRNhyjuQGQsZ5BfaTTzSA1ExGK1BEP4XQplRl/vKwqITjKAghyCmgWHGCk245nm/enIOWoEUqNWJkN4HFSm0L1VQ8ijOiJhCsoQik2YohmaY/fvL4/3N5AaZAhEpW6ozRnyoM6o5RDEJpvCIr9poGsc7jQWKDVGvXaLYViUiM4ztGXIkN7EUSE7+sDnW7TwzeW5adSIgIvSUxqi4wyAoAwhUyBNOSqyopfGPt1cHO2u1SvFLLonUmNEpGcXGFRTUFSIBImmxLKieifCciafjgbdlBrUPNkQ/H1H1W4KrhVJN39+AG9QWJbGk2Gfy4buKVOjGxCtqIAp0MeCsRB9alG9QWHJ+SlqBIUln9ZhkSkoQQYGdVhY+CNjA/gweXd99oa9kYpSoWrPT3FahyVNgbKJDuINJSgoFm+vODemyBtOtM/BATU/xUmdljAFZ6lZ8QRjFBS7qFQo2bPFLLxBRYLWU2wIcU7HxRDoY/3kD5c/gkrx4uL6gitVIR1DbpjbioQ8qdPiBGEIyg9fKPJMY6AE3VqZR6USJbvb3pCm4FJhMGNZEe/V+KiLU4LmEmEfrahQqbpqCEgERa8s3dFhTYpDgsol9Q2sZrrtDYhMIeuVzemLGDUzVCWaIYG+gZLdxfwUEv6Q/SOkaNbQQUWViFDz0lEDZUN0G0Itmp5Rj2ZDxCVW2WE/Vwm1b3QX4hmKJlcKVG6PZgdxublMjYM6KKoEQkIs6+QJ3ZBMUix4TYor4NMcoF4iOYq5BK1w0UHRvLodEgLipSxXAb/miFoo18ugx25uQcjDuyPYmdsHp4c/oDnnoo0WGsP9BnUvlKruJigJphA9jGpmUPOWFvt1ytC/DPGc0wM56hvVvOXFBCCiAkJmqDy4W2pBoJsHNWe4/0OtwtLOj1UV34r/PQjkKCD8mjfcQ8WKRoXodly2Q2BJ4dXs/f8Qbs0mQci13f8E4dKsCoiJFO6E/ycIh2blB5b4m4GJZY1DU+LsIAg00b8NoR2iFDVrEpeoE4CgOiEh/mqxAoRO42EIWTH/DwiHV6vRidVdIcMLq79UttUGRr3D4evRvHhzvE8NjLsoQ1AX7ToEL63Eot+DazXobhitHOsJauW8qPkrEOpKl3a6zIqVVS4ZwqJGrKy6nh4cEuKeWHHRDpMorTHlnSjfkos1pji6S1IhhnRmxT2MD0y02pY3YLTQlYWiqw4RELTaRq3i53drR1wyUShQrXjJj6DoblTwaltmqHiyXDze40cksaDnb9wPQyIuxc2P08gfjYqHRblEiB8favu7DQEGNSSMNpfYPdpP6SEik26Im0HBX3ZBCDeCUG+I5Z7NWfVpkbgPHOjrbs0kCPXRgMWhbgELt56boVzRiw5+iCm/7bgkhHxIom70GdykoKBHqV6HlZ4pd+0pJosZeDGB+y+l+XJ0svmoBv6g904iSeW3nZZqCHjDbG+973DTWrdMjZTvBNWi2R0K9gbXbHrnQQ8xpbb58R2S1Oe08suOrtUrIKiVitaX7e/AYgfsjxS9/+rmQ35hB1mpKDfa958NLre/7uCn/AKi4xQCgosEwtL61YvqhPqEHU2MS4Vqik5TqIYQzevrXd0jK/QuEPWKn6eqpbsLFBSVFJZcJKzf7IxM7a7Rk5KEeLzd9oy9sxD4vVZ+Kjr5qaq+nU0OTZjCbtGLl2CdhxDOkIXK6vhuq390p4HSTS+gnPTepSsJIhnIGUgNhZZUX6t3hlopmQIFS9YKppDfd0DsCxGVlBqmH8w8uDYaC5ViDglCLwTFu/KOVixiYGdQVOLOq61YtpTZWJ6bztOeHt5GAodQsegYhWQQUYmFxLdRKdSz3qijdicjARdtGxgU+yc6RcEMzag0WpSfDKD411fmxdai9t0snaEQdqCoFNsnbD8d10ryJqsUmmnLIZ2haDKIXU5m5ecTMP2FVRmbtI+Ddzipew/lEX+opi9e9VJmGK2GX+xZNleXySG8owXVG3lKwflkijaGfg4Ic/temu/kXREOQYZgzUth0QGPtOIBiUEMPw8IoTA7RO4wEhRP9UiLgRKDtnp9Xyq/1j8xckg2GQ6gh/CmM0qRp1C0xwOqFAXlb3/pVZL2pWYSCE6iEB5BpjLGH4AIBBkPSE6zTfdMfvUL9aXr1al8Oh7yu5hisB+Z2qJ4BAYfLlzBuaklX9h+lRgtvSjVZ0sTKaSIoNBSvSCXPNYYzMA9i32BeNCbbaYH2IE0mFqolMaRIj63Xe5Obe5WJgx52O/EBBQNHJKUF2SH327kV9UXr1WKoAghLuSe6b5e2kBPxniIU/iQVjTwXmXkJtZSD/KF0MtwrSwpaNc0kkQa43kTQx75QzFBO4Pcta2MPNAXUoH5cjGHuPB7aJyAJxqI4kEYKkHTDBSSejD8rj58J2cetkjHwwGeL2lOFIgIbXpFSJ6iWkACcDBQcdDyTn6r+Q/mnPXJcnGCRky8LruVN/SL2Qo53UEc7SAtCQQQwArsCWEGwy/7xc/UE5jmYZtRBIZNjDbwlInAUDkgeXFI/Fs1Ao/ciFEXi23kESH5lYxTU4XcWCwcYGPwvA1bQ8wcCZAWC18dYhsgFEBAQz+EoChPmK8eDBQnx9MJGINGbsw0/EQDYDx9JTlI4uJ0eVyfCcgGYgyLrGDX/XyS4iEyxUoTWRgj6CWf8AyWmEMTHOoYlir6AAQqgk5vNFsV0w/X1Y/RS2emQMbgaTRYw6jX0TxcayCOBtCa4qE4Gs9rzqIptuFOzFRrPel8NkXTibCGYiVztCYD+4lFlRwPpEHFEZ3BaIYjrE/0REv9zqQckvS6aT7QzBOKACESGIWFP7Q0KTnM44k0J6k4rCOPmEj8rZ4pmVwLQ53V1OvUaU0S/lJHRk08MaoMPbTXPVTPDd4kDc6Ggn6v2yXmZmlu1WgADMlA86owAI2sKg6nYhh4XKN4oHotgVQqGYsQBw/wgsRmpRleksViseLyit3hdDnNQw9u2Y9Xv8kdGksQR4AmqV0uJ7NAdrvdQVPMbo9iHOxkJPxYPQb3aCwejfBQud/n83o9JK/X6/M6umqCb/VyyGj3eD3BwGgYFcTrcDjMuoE/aw8azX8p1DsCWPfRswAAAABJRU5ErkJggg==" preserveAspectRatio="none" id="img2"></image><clipPath id="clip-search-in-3"><rect x="574" y="294" width="132" height="132"/></clipPath></defs><g clip-path="url(#clip-search-in-0)" transform="translate(-573 -293)"><path d="M574 360C574 323.549 603.549 294 640 294 676.451 294 706 323.549 706 360 706 396.451 676.451 426 640 426 603.549 426 574 396.451 574 360Z" fill="url(#fill-search-in-1)" fill-rule="evenodd"/><g clip-path="url(#clip-search-in-3)"><use width="100%" height="100%" xlink:href="#img2" transform="translate(574 294)"></use></g></g></svg>
+			</a>
+			<a class="dock-btn" id="widgets-btn" win12_title="小组件" onclick="
+			if($('#widgets').hasClass('show')){
+				hide_widgets();
+			}
+			else{
+				$('#widgets-btn').addClass('show');
+				if($('#search-win').hasClass('show')){
+					$('#search-btn').removeClass('show');
+					$('#search-win').removeClass('show');
+					setTimeout(() => {
+						$('#search-win').removeClass('show-begin');
+					}, 200);
+				}
+				if($('#start-menu').hasClass('show'))hide_startmenu();
+				$('#widgets').addClass('show-begin');
+				setTimeout(() => {
+					$('#widgets').addClass('show');
+				}, 0);
+				$('#widgets-input').focus();
+			}">
+				<svg viewBox="0,0,260,260" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden" class="wid1"><defs><clipPath id="clip-wid1-0"><rect x="510" y="230" width="260" height="260"/></clipPath><linearGradient x1="551.891" y1="207.391" x2="728.109" y2="512.609" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill-wid1-1"><stop offset="0" stop-color="#7AB1FA"/><stop offset="0.18" stop-color="#7AB1FA"/><stop offset="0.91" stop-color="#4C6EDC"/><stop offset="1" stop-color="#4C6EDC"/></linearGradient></defs><g clip-path="url(#clip-wid1-0)" transform="translate(-510 -230)"><path d="M511 274.001C511 250.252 530.252 231 554.001 231L725.999 231C749.748 231 769 250.252 769 274.001L769 445.999C769 469.748 749.748 489 725.999 489L554.001 489C530.252 489 511 469.748 511 445.999Z" fill="url(#fill-wid1-1)" fill-rule="evenodd"/></g></svg>
+				<svg viewBox="0,0,175,206" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden" class="wid2"><defs><filter id="fx0" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="5.81042 5.77778"/></filter><filter id="fx1" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="4 4"/></filter><filter id="fx2" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="4 4"/></filter><filter id="fx3" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="4 4"/></filter><clipPath id="clip-wid2-4"><rect x="615" y="214" width="175" height="206"/></clipPath><clipPath id="clip-wid2-5"><rect x="-6.53674" y="-6.5" width="101.068" height="115"/></clipPath><clipPath id="clip-wid2-6"><rect x="0" y="0" width="89" height="104"/></clipPath><linearGradient x1="644.325" y1="249.245" x2="754.675" y2="380.755" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill-wid2-7"><stop offset="0" stop-color="#775CFE"/><stop offset="0.43" stop-color="#775CFE"/><stop offset="0.83" stop-color="#2473DC"/><stop offset="1" stop-color="#2473DC"/></linearGradient><clipPath id="clip-wid2-8"><rect x="-5" y="-5" width="67" height="42"/></clipPath><clipPath id="clip-wid2-9"><rect x="0" y="0" width="57" height="35"/></clipPath><clipPath id="clip-wid2-10"><rect x="-5" y="-5" width="103" height="42"/></clipPath><clipPath id="clip-wid2-11"><rect x="0" y="0" width="93" height="35"/></clipPath><clipPath id="clip-wid2-12"><rect x="-5" y="-5" width="80" height="42"/></clipPath><clipPath id="clip-wid2-13"><rect x="0" y="0" width="72" height="35"/></clipPath></defs><g clip-path="url(#clip-wid2-4)" transform="translate(-615 -214)"><g clip-path="url(#clip-wid2-5)" filter="url(#fx0)" transform="matrix(1.98876 0 0 2 614 213)"><g clip-path="url(#clip-wid2-6)"><path d="M18.2408 33.043C18.2408 24.8162 24.9475 18.1472 33.2208 18.1472L56.0574 18.1472C64.3306 18.1472 71.0374 24.8162 71.0374 33.043L71.0374 71.2513C71.0374 79.4781 64.3306 86.1472 56.0574 86.1472L33.2208 86.1472C24.9475 86.1472 18.2408 79.4781 18.2408 71.2513Z" fill="#FF0000" fill-rule="evenodd"/></g></g><path d="M647 276.792C647 260.338 660.338 247 676.792 247L722.208 247C738.662 247 752 260.338 752 276.792L752 353.208C752 369.662 738.662 383 722.208 383L676.792 383C660.338 383 647 369.662 647 353.208Z" fill="url(#fill-wid2-7)" fill-rule="evenodd"/><g clip-path="url(#clip-wid2-8)" filter="url(#fx1)" transform="translate(649 260)"><g clip-path="url(#clip-wid2-9)"><path d="M17.3857 17.3857 39.7776 17.3858" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/></g></g><path d="M664.5 275.5 686.892 275.5" stroke="#FFFFFF" stroke-width="8.66667" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/><g clip-path="url(#clip-wid2-10)" filter="url(#fx2)" transform="translate(649 282)"><g clip-path="url(#clip-wid2-11)"><path d="M17.3857 17.3857 75.9099 17.3858" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/></g></g><path d="M664.5 297.5 723.024 297.5" stroke="#FFFFFF" stroke-width="8.66667" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/><g clip-path="url(#clip-wid2-12)" filter="url(#fx3)" transform="translate(649 305)"><g clip-path="url(#clip-wid2-13)"><path d="M17.3857 17.3857 54.5358 17.3858" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/></g></g><path d="M664.5 320.5 701.65 320.5" stroke="#FFFFFF" stroke-width="8.66667" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/></g></svg>
+				<svg viewBox="0,0,174,298" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden" class="wid3"><defs><filter id="fx0" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="5.81079 5.7971"/></filter><filter id="fx1" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="4 4"/></filter><filter id="fx2" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="4 4"/></filter><filter id="fx3" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="4 4"/></filter><clipPath id="clip-wid3-4"><rect x="498" y="214" width="174" height="298"/></clipPath><clipPath id="clip-wid3-5"><rect x="-6.53714" y="-6.52174" width="98.0572" height="162.04"/></clipPath><clipPath id="clip-wid3-6"><rect x="0" y="0" width="88" height="150"/></clipPath><linearGradient x1="668.609" y1="288.246" x2="496.391" y2="432.754" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill-wid3-7"><stop offset="0" stop-color="#C45DD5"/><stop offset="0.18" stop-color="#C45DD5"/><stop offset="0.69" stop-color="#A266E4"/><stop offset="1" stop-color="#A266E4"/></linearGradient><clipPath id="clip-wid3-8"><rect x="-5" y="-5" width="86" height="42"/></clipPath><clipPath id="clip-wid3-9"><rect x="0" y="0" width="77" height="35"/></clipPath><clipPath id="clip-wid3-10"><rect x="-5" y="-5" width="67" height="42"/></clipPath><clipPath id="clip-wid3-11"><rect x="0" y="0" width="58" height="35"/></clipPath><clipPath id="clip-wid3-12"><rect x="-5" y="-5" width="92" height="42"/></clipPath><clipPath id="clip-wid3-13"><rect x="0" y="0" width="85" height="35"/></clipPath></defs><g clip-path="url(#clip-wid3-4)" transform="translate(-498 -214)"><g clip-path="url(#clip-wid3-5)" filter="url(#fx0)" transform="matrix(1.98864 0 0 1.99333 498 214)"><g clip-path="url(#clip-wid3-6)" transform="translate(2.84217e-14 -1.42109e-14)"><path d="M18.0166 36.3921C18.0166 26.2201 26.2821 17.9741 36.4781 17.9741L51.3493 17.9741C61.5454 17.9741 69.8109 26.2201 69.8109 36.3921L69.8109 113.436C69.8109 123.608 61.5454 131.854 51.3493 131.854L36.4781 131.854C26.2821 131.854 18.0166 123.608 18.0166 113.436Z" fill="#FF0000" fill-rule="evenodd"/></g></g><path d="M531 283.713C531 263.437 547.437 247 567.713 247L597.287 247C617.563 247 634 263.437 634 283.713L634 437.287C634 457.563 617.563 474 597.287 474L567.713 474C547.437 474 531 457.563 531 437.287Z" fill="url(#fill-wid3-7)" fill-rule="evenodd"/><g clip-path="url(#clip-wid3-8)" filter="url(#fx1)" transform="translate(534 259)"><g clip-path="url(#clip-wid3-9)"><path d="M17.3857 17.3857 59.5683 17.3858" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/></g></g><path d="M549.5 274.5 591.683 274.5" stroke="#FFFFFF" stroke-width="8.66667" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/><g clip-path="url(#clip-wid3-10)" filter="url(#fx2)" transform="translate(534 281)"><g clip-path="url(#clip-wid3-11)"><path d="M17.3857 17.3857 40.3525 17.3858" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/></g></g><path d="M549.5 296.5 572.467 296.5" stroke="#FFFFFF" stroke-width="8.66667" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/><g clip-path="url(#clip-wid3-12)" filter="url(#fx3)" transform="translate(534 302)"><g clip-path="url(#clip-wid3-13)"><path d="M17.3857 17.3857 67.3293 17.3858" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/></g></g><path d="M549.5 317.5 599.444 317.5" stroke="#FFFFFF" stroke-width="8.66667" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/></g></svg>
+				<svg viewBox="0,0,141,113" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden" class="wid4"><defs><filter id="fx0" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="5.77778 5.77778"/></filter><filter id="fx1" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="discrete" tableValues="0 0"/><feFuncG type="discrete" tableValues="0 0"/><feFuncB type="discrete" tableValues="0 0"/><feFuncA type="linear" slope="0.4" intercept="0"/></feComponentTransfer><feGaussianBlur stdDeviation="4 4"/></filter><clipPath id="clip-wid4-2"><rect x="629" y="380" width="141" height="113"/></clipPath><clipPath id="clip-wid4-3"><rect x="-6" y="-3" width="154" height="121"/></clipPath><clipPath id="clip-wid4-4"><rect x="0" y="0" width="143" height="115"/></clipPath><linearGradient x1="670.387" y1="386.075" x2="728.613" y2="486.925" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill-wid4-5"><stop offset="0" stop-color="#D854CB"/><stop offset="0.13" stop-color="#D854CB"/><stop offset="1" stop-color="#A266E4"/></linearGradient><clipPath id="clip-wid4-6"><rect x="-5" y="-5" width="105" height="69"/></clipPath><clipPath id="clip-wid4-7"><rect x="0" y="0" width="98" height="63"/></clipPath></defs><g clip-path="url(#clip-wid4-2)" transform="translate(-629 -380)"><g clip-path="url(#clip-wid4-3)" filter="url(#fx0)" transform="translate(628 379)"><g clip-path="url(#clip-wid4-4)"><path d="M18.97 46.5177C18.97 31.4582 31.1781 19.25 46.2377 19.25L96.7623 19.25C111.822 19.25 124.03 31.4582 124.03 46.5177L124.03 68.4823C124.03 83.5418 111.822 95.75 96.7623 95.75L46.2377 95.75C31.1781 95.75 18.97 83.5418 18.97 68.4823Z" fill="#FF0000" fill-rule="evenodd"/></g></g><path d="M648 425.733C648 410.969 659.969 399 674.733 399L724.267 399C739.031 399 751 410.969 751 425.733L751 447.267C751 462.031 739.031 474 724.267 474L674.733 474C659.969 474 648 462.031 648 447.267Z" fill="url(#fill-wid4-5)" fill-rule="evenodd"/><g clip-path="url(#clip-wid4-6)" filter="url(#fx1)" transform="translate(653 407)"><g clip-path="url(#clip-wid4-7)"><path d="M17.3857 45.3857C24.6516 31.6825 31.9177 17.9794 39.5617 17.3963 47.2057 16.8131 56.4457 40.5542 63.2497 41.887 70.0537 43.2198 79.3357 31.3285 80.3857 25.3933" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/></g></g><path d="M668.5 450.5C675.766 436.797 683.032 423.094 690.676 422.511 698.32 421.928 707.56 445.669 714.364 447.001 721.168 448.334 730.45 436.443 731.5 430.508" stroke="#FFFFFF" stroke-width="8.66667" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd"/></g></svg>
+			</a>
+			<a class="dock-btn" onclick="$('#copilot').toggleClass('show');$(this).toggleClass('show')" id="copilot-btn">
+			<img src="icon/copilot.svg"></a>
+		</div>
+		<div class="dock" id="taskbar" style="display: none;" count="0">
+		</div>
+		<div id="toolbar">
+
+		</div>
+		<div class="a dock theme" win12_title="Switch theme" onclick="toggletheme()">
+			<svg viewBox="0,0,307,307" class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><clipPath id="theme-light-clip0"><rect x="79" y="77" width="307" height="307" /></clipPath><linearGradient x1="128.499" y1="49.9991" x2="337.501" y2="412.001" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="theme-light-fill1"><stop offset="0" stop-color="#FFC567" /><stop offset="0.18" stop-color="#FFC567" /><stop offset="0.8" stop-color="#EE54F2" /></linearGradient></defs><g clip-path="url(#theme-light-clip0)" transform="translate(-79 -77)"><path d="M80 231C80 146.5 148.5 78 233 78 317.5 78 386 146.5 386 231 386 315.5 317.5 384 233 384 148.5 384 80 315.5 80 231Z" fill="url(#theme-light-fill1)" fill-rule="evenodd" /></g></svg>
+			<svg viewBox="0,0,275,294" class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><clipPath id="theme-dark-clip0"><rect x="525" y="230" width="275" height="294" /></clipPath><linearGradient x1="599.492" y1="203.887" x2="725.508" y2="550.113" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="theme-dark-fill1"><stop offset="0" stop-color="#2474B6" /><stop offset="0.42" stop-color="#2474B6" /><stop offset="0.98" stop-color="#FFD966" /><stop offset="1" stop-color="#FFD966" /></linearGradient></defs><g clip-path="url(#theme-dark-clip0)" transform="translate(-525 -230)"><path d="M635.002 236.062C638.664 240.491 639.245 246.694 636.469 251.721 625.869 271.094 620.334 292.809 620.372 314.869 620.372 388.255 680.469 447.679 754.537 447.679 764.199 447.679 773.604 446.675 782.643 444.759 788.307 443.538 794.156 445.809 797.493 450.526 801.036 455.459 800.803 462.148 796.925 466.824 767.803 502.434 724.103 523.073 677.976 523 593.458 523 525 455.217 525 371.701 525 308.846 563.757 254.933 618.942 232.083 624.588 229.708 631.132 231.329 635.002 236.062Z" fill="url(#theme-dark-fill1)" fill-rule="evenodd" /></g></svg>
+		</div>
+		<div class="a dock control" onclick="if($('#control').hasClass('show')) {
+			$('#control').removeClass('show');
+			setTimeout(() => {
+				$('#control').removeClass('show-begin');
+			}, 200);
+		}
+		else {
+			if ($('#datebox').hasClass('show')) {
+				$('.dock.date').removeClass('show');
+				$('#datebox').removeClass('show');
+				setTimeout(() => {
+					$('#datebox').removeClass('show-begin');
+				}, 200);
+			}
+			$('#control').css('left',$(this).position().left - 123);
+			$('#control').addClass('show-begin');
+			setTimeout(() => {
+				$('#control').addClass('show');
+			}, 0);
+		}">
+			<svg viewBox="1 7 29 15" width="28px" height="14px" version="1.1" id="svg4">
+				<path
+					d="M 4 7 C 2.3550302 7 1 8.3550302 1 10 L 1 19 C 1 20.64497 2.3550302 22 4 22 L 24 22 C 25.64497 22 27 20.64497 27 19 L 27 10 C 27 8.3550302 25.64497 7 24 7 L 4 7 z M 4 9 L 24 9 C 24.56503 9 25 9.4349698 25 10 L 25 19 C 25 19.56503 24.56503 20 24 20 L 4 20 C 3.4349698 20 3 19.56503 3 19 L 3 10 C 3 9.4349698 3.4349698 9 4 9 z M 5 11 L 5 18 L 23 18 L 23 11 L 5 11 z M 28 12 L 28 17 L 29 17 C 29.552 17 30 16.552 30 16 L 30 13 C 30 12.448 29.552 12 29 12 L 28 12 z"
+					id="path2" />
+			</svg>
+			<icon class="s-icon"></icon>
+			<icon class="s-icon"></icon>
+		</div>
+		<div class="a dock date" onclick="if($('#datebox').hasClass('show')) {
+			$('.dock.date').removeClass('show');
+			$('#datebox').removeClass('show');
+			setTimeout(() => {
+				$('#datebox').removeClass('show-begin');
+			}, 200);
+		}
+		else {
+			if ($('#control').hasClass('show')) {
+				$('#control').removeClass('show');
+				setTimeout(() => {
+					$('#control').removeClass('show-begin');
+				}, 200);
+			}
+			$('.dock.date').addClass('show');
+			$('#datebox').css('left',$(this).position().left-125);
+			$('#datebox').addClass('show-begin');
+			setTimeout(() => {
+				$('#datebox').addClass('show');
+			}, 0);
+		}">
+			<p class="time">12:34:56</p>
+			<p class="date">2022/10/01</p>
+			<i class="bi bi-chevron-down"></i>
+		</div>
+	</div>
+	<div id="desktop">
+		<div ondblclick="openapp('explorer');" ontouchstart="openapp('explorer');" win12_title="Displays the drives and hardware connected to this computer." oncontextmenu="return showcm(event,'desktop.icon',['explorer',-1]);" appname="explorer">
+			<img src="apps/icons/explorer/thispc.svg">
+			<p>This PC</p>
+		</div>
+		<div class="b" ondblclick="openapp('setting');" ontouchstart="openapp('setting');" oncontextmenu="return showcm(event,'desktop.icon',['setting',-1]);" appname="setting">
+			<img src="icon/setting.svg">
+			<p>Setting</p>
+		</div>
+		<div class="b" ondblclick="openapp('about');" ontouchstart="openapp('about');" oncontextmenu="return showcm(event,'desktop.icon',['about',-1]);" appname="about">
+			<img src="icon/about.svg">
+			<p>About Windows 12</p>
+		</div>
+		<div class="b" ondblclick="openapp('edge');" ontouchstart="openapp('edge');" oncontextmenu="return showcm(event,'desktop.icon',['edge',-1]);" appname="edge">
+			<img src="icon/edge.svg">
+			<p>Microsoft Edge</p>
+		</div>
+		<div class="b" ondblclick="shownotice('feedback');" ontouchstart="shownotice('feedback');;">
+			<img src="icon/feedback.svg">
+			<p>Feedback</p>
+		</div>
+		<span class="choose">
+		</span>
+		<p style="background-color: rgba(11,45,14,0);z-index:1;position: absolute;top:0px;left:0px;height:100%;width:100%" oncontextmenu="return showcm(event,'desktop');"></p>
+	</div>
+	<div id="cm" tabindex="-1">
+		<input class="foc">
+		<list>
+		</list>
+	</div>
+	<div id="dp">
+		<list>
+		</list>
+	</div>
+	<div id="descp">
+
+	</div>
+	<div id="desktop-widgets">
+		<div class="widgets-move"></div>
+	</div>
+	<div id="desktop-editbar-container">
+		<div id="desktop-editbar">
+			<div onclick="shownotice('widgets.desktop');"><i class="bi bi-plus"></i> Add widget</div>
+			<div onclick="openapp('setting');$('#win-setting > div.menu > list > a.enable.appearance')[0].click();"><i class="bi bi-brush"></i>Personalise</div>
+			<div onclick="editMode();" win12_title="Exit edit mode"><i class="bi bi-x-lg"></i></div>
+		</div>
+	</div>
+	<p id="translater" style="display: none;"></p>
+	<div id="notice-back">
+		<div id="notice">
+			<div class="cnt">
+				<p class="tit">Notice</p>
+				<p>Your computer is about to explode</p>
+			</div>
+			<div class="btns">
+				<a class="a btn main" onclick="closenotice()">Sure</a>
+			</div>
+		</div>
+	</div>
+	<div class="window defender" data-min-width="800" style="width: max(800px, 70%)">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/defender.svg" class="icon">
+			<p>Windows Defender</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('defender')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('defender')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('defender')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/defender.svg" class="icon">
+		</div>
+		<div class="content" id="win-defender">
+			<div class="app-left">
+				<button class="close-menu">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+						stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+						class="feather feather-x">
+						<line x1="18" y1="6" x2="6" y2="18" />
+						<line x1="6" y1="6" x2="18" y2="18" />
+					</svg>
+				</button>
+				<ul class="nav-list">
+					<li class="nav-list-item active">
+						<a class="nav-list-link">
+							<icon></icon>
+							Homepage
+						</a>
+					</li>
+					<li class="nav-list-item">
+						<a class="nav-list-link">
+							<icon></icon>
+							Virus threats and protection
+						</a>
+					</li>
+					<li class="nav-list-item">
+						<a class="nav-list-link">
+							<icon></icon>
+							Account protection
+						</a>
+					</li>
+					<li class="nav-list-item">
+						<a class="nav-list-link">
+							<icon></icon>
+							Firewall and Network protection
+						</a>
+					</li>
+					<li class="nav-list-item">
+						<a class="nav-list-link">
+							<icon></icon>
+							Device security
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="app-main">
+				<div class="main-header-line">
+					<h1>Security overview</h1>
+					<div class="action-buttons">
+						<button class="open-right-area">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="feather feather-activity">
+								<polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+							</svg>
+						</button>
+						<button class="menu-button">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="feather feather-menu">
+								<line x1="3" y1="12" x2="21" y2="12" />
+								<line x1="3" y1="6" x2="21" y2="6" />
+								<line x1="3" y1="18" x2="21" y2="18" />
+							</svg>
+						</button>
+					</div>
+				</div>
+				<div class="chart-row three">
+					<div class="chart-container-wrapper">
+						<div class="chart-container">
+							<div class="chart-info-wrapper">
+								<h2>Network traffic usage</h2>
+								<span>20.5 M</span>
+							</div>
+							<div class="chart-svg">
+								<svg viewBox="0 0 36 36" class="circular-chart pink">
+									<path class="circle-bg" d="M18 2.0845
+							a 15.9155 15.9155 0 0 1 0 31.831
+							a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+									<path class="circle" stroke-dasharray="30, 100" d="M18 2.0845
+							a 15.9155 15.9155 0 0 1 0 31.831
+							a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+									<text x="18" y="20.35" class="percentage">30%</text>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="chart-container-wrapper">
+						<div class="chart-container">
+							<div class="chart-info-wrapper">
+								<h2>Internet speed</h2>
+								<span>99 M/S</span>
+							</div>
+							<div class="chart-svg">
+								<svg viewBox="0 0 36 36" class="circular-chart blue">
+									<path class="circle-bg" d="M18 2.0845
+							a 15.9155 15.9155 0 0 1 0 31.831
+							a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+									<path class="circle" stroke-dasharray="60, 100" d="M18 2.0845
+							a 15.9155 15.9155 0 0 1 0 31.831
+							a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+									<text x="18" y="20.35" class="percentage">99M/S</text>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="chart-container-wrapper">
+						<div class="chart-container">
+							<div class="chart-info-wrapper">
+								<h2>Invasive virus removal</h2>
+								<h3 style="color: white;">All viruses removed</h3>
+							</div>
+							<div class="chart-svg">
+								<svg viewBox="0 0 36 36" class="circular-chart orange">
+									<path class="circle-bg" d="M18 2.0845
+							a 15.9155 15.9155 0 0 1 0 31.831
+							a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+									<path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+							a 15.9155 15.9155 0 0 1 0 31.831
+							a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+									<text x="18" y="20.35" class="percentage">100%</text>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="chart-row two">
+					<div class="chart-container-wrapper big">
+						<div class="chart-container">
+							<div class="chart-container-header">
+								<h2>How often the computer is attacked by viruses</h2>
+								<span>Past 30 Sky</span>
+							</div>
+							<div class="line-chart">
+								<canvas id="chart"></canvas>
+							</div>
+							<div class="chart-data-details">
+								<div class="chart-details-header"></div>
+							</div>
+						</div>
+					</div>
+					<div class="chart-container-wrapper small">
+						<div class="chart-container">
+							<div class="chart-container-header">
+								<h2>Network communication ratio</h2>
+								<span href="#">This month</span>
+							</div>
+							<div class="acquisitions-bar">
+								<span class="bar-progress rejected" style="width:1%;"></span>
+								<span class="bar-progress shortlisted" style="width:5%;"></span>
+								<span class="bar-progress on-hold" style="width:19%;"></span>
+								<span class="bar-progress applications" style="width:80%;"></span>
+							</div>
+							<div class="progress-bar-info">
+								<span class="progress-color applications"></span>
+								<span class="progress-type">Request successful</span>
+								<span class="progress-amount">80%</span>
+							</div>
+							<div class="progress-bar-info">
+								<span class="progress-color shortlisted"></span>
+								<span class="progress-type">Request failed</span>
+								<span class="progress-amount">5%</span>
+							</div>
+							<div class="progress-bar-info">
+								<span class="progress-color on-hold"></span>
+								<span class="progress-type">No response after request is sent</span>
+								<span class="progress-amount">19%</span>
+							</div>
+							<div class="progress-bar-info">
+								<span class="progress-color rejected"></span>
+								<span class="progress-type">Contains viruses</span>
+								<span class="progress-amount">1%</span>
+							</div>
+						</div>
+						<div class="chart-container applicants">
+							<div class="chart-container-header">
+								<h2>Request records</h2>
+								<span>Today only displays the last 5 requests</span>
+							</div>
+							<div class="applicant-line">
+								<div class="applicant-info">
+									<span>Https-Get</span>
+									<p>Get url : <strong>tjy-gitnub.github......</strong></p>
+								</div>
+							</div>
+							<div class="applicant-line">
+								<div class="applicant-info">
+									<span>Https-Post</span>
+									<p>Post url :<strong>api.github.com/r......</strong></p>
+								</div>
+							</div>
+							<div class="applicant-line">
+								<div class="applicant-info">
+									<span>Https-Get</span>
+									<p>Get url :<strong>cdn.jsdelivr.net/p......</strong></p>
+								</div>
+							</div>
+							<div class="applicant-line">
+								<div class="applicant-info">
+									<span>Https-Get</span>
+									<p>Get url :<strong>win12server.freeh......</strong></p>
+								</div>
+							</div>
+							<div class="applicant-line">
+								<div class="applicant-info">
+									<span>Https-Get</span>
+									<p>Get url :<strong>github.com/tjy-g......</strong></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js'></script>
+
+			<script>
+				var chart = document.getElementById('chart').getContext('2d'),
+					gradient = chart.createLinearGradient(0, 0, 0, 450);
+				gradient.addColorStop(0, 'rgba(0, 199, 214, 0.32)');
+				gradient.addColorStop(0.3, 'rgba(0, 199, 214, 0.1)');
+				gradient.addColorStop(1, 'rgba(0, 199, 214, 0)');
+				var data = {
+					labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+					datasets: [{
+						label: '病毒攻击次数',
+						backgroundColor: gradient,
+						pointBackgroundColor: '#00c7d6',
+						borderWidth: 1,
+						borderColor: '#0e1a2f',
+						data: [60, 45, 80, 30, 35, 55, 25, 80, 40, 50, 80, 50]
+					}]
+				};
+				var options = {
+					responsive: true,
+					maintainAspectRatio: true,
+					animation: {
+						easing: 'easeInOutQuad',
+						duration: 520
+					},
+					scales: {
+						yAxes: [{
+							ticks: {
+								fontColor: '#5e6a81'
+							},
+							gridLines: {
+								color: 'rgba(200, 200, 200, 0.08)',
+								lineWidth: 1
+							}
+						}],
+						xAxes: [{
+							ticks: {
+								fontColor: '#5e6a81'
+							}
+						}]
+					},
+					elements: {
+						line: {
+							tension: 0.4
+						}
+					},
+					legend: {
+						display: false
+					},
+					point: {
+						backgroundColor: '#00c7d6'
+					},
+					tooltips: {
+						titleFontFamily: 'Poppins',
+						backgroundColor: 'rgba(0,0,0,0.4)',
+						titleFontColor: 'white',
+						caretSize: 5,
+						cornerRadius: 2,
+						xPadding: 10,
+						yPadding: 10
+					}
+				};
+				var chartInstance = new Chart(chart, {
+					type: 'line',
+					data: data,
+					options: options
+				});
+			</script>
+		</div>
+		<!-- partial -->
+		<script src='https://cdns.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js'></script>
+		<script src="https://unpkg.com/big.js@5.2.2/big.min.js"></script>
+	</div>
+	<div id="window-fill"></div>
+	<div class="window setting">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/setting.svg" class="icon">
+			<p>Set up</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('setting')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('setting')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('setting')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/setting.svg" class="icon">
+		</div>
+		<div class="content" id="win-setting">
+			<div class="menu">
+				<a class="a user">
+					<svg viewBox="0,0,257,344" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><clipPath id="user-clip1"><rect x="382" y="195" width="257" height="344" /></clipPath><linearGradient x1="351.462" y1="233.56" x2="669.496" y2="500.422" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="user-fill3"><stop offset="0" stop-color="#A964C8" /><stop offset="0.35" stop-color="#A964C8" /><stop offset="0.87" stop-color="#2D8AD5" /><stop offset="1" stop-color="#2D8AD5" /></linearGradient><linearGradient x1="351.462" y1="233.56" x2="669.496" y2="500.422" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="user-fill4"><stop offset="0" stop-color="#A964C8" /><stop offset="0.35" stop-color="#A964C8" /><stop offset="0.87" stop-color="#2D8AD5" /><stop offset="1" stop-color="#2D8AD5" /></linearGradient></defs><g clip-path="url(#user-clip1)" transform="translate(-382 -195)"><path d="M637.755 433.872C642.215 515.221 579.577 537.983 508.011 537.983 436.444 537.983 376.676 507.833 383.513 437.11 383.109 425.234 389.59 414.133 398.634 409.891 413.82 402.768 444.753 402.936 507.484 402.997 570.214 403.058 609.164 402.279 621.521 407.947 633.878 413.614 638.011 424.609 637.755 433.872Z" fill="url(#user-fill3)" fill-rule="evenodd" /><path d="M422 285C422 235.847 461.623 196 510.5 196 559.377 196 599 235.847 599 285 599 334.153 559.377 374 510.5 374 461.623 374 422 334.153 422 285Z" fill="url(#user-fill4)" fill-rule="evenodd" /></g></svg>
+					<div>
+						<p>Trung17t</p> 
+						<p>lttthedev@windows12.com</p>
+					</div>
+				</a>
+				<input type="text" class="input" placeholder="查找设置" style="padding-left: 30px;">
+				<input-before class="bi bi-search"></input-before>
+				<list class="focs"><!--压缩行数-->
+					<a class="enable system check" onclick="apps.setting.page('system')"><img src="apps/icons/setting/system.png">System</a>
+					<a class="enable blueteeth" onclick="apps.setting.page('blueteeth')"><img src="apps/icons/setting/blueteeth.png">Bluetooth and other devices</a><!-- 蓝牙与设备  @Junchen Yi 2023-9-9-->
+					<a class="enable network" onclick="apps.setting.page('network')"><img src="apps/icons/setting/network.png">Network and Internet</a><!-- 网络和 Internet  @Junchen Yi 2023-9-10-->
+					<a class="enable appearance" onclick="apps.setting.page('appearance')"><img src="apps/icons/setting/personal.png">Personalize</a>
+					<a class="enable apps" onclick="apps.setting.page('apps')"><img src="apps/icons/setting/apps.png">Application</a><!-- 应用  @Junchen Yi 2023-9-11-->
+					<a class="enable user" onclick="apps.setting.page('user')"><img src="apps/icons/setting/user.png">Account</a><!-- 账户  @Junchen Yi 2023-9-11-->
+					<a class="enable time" onclick="apps.setting.page('time')"><img src="apps/icons/setting/time.png">Time and language</a><!-- 时间  @Junchen Yi 2023-9-17-->
+					<a><img src="apps/icons/setting/game.png">Game</a>
+					<a><img src="apps/icons/setting/help.png">Accessibility</a>
+					<a class="enable safe" onclick="apps.setting.page('safe')"><img src="apps/icons/setting/safe.png">Privacy and security</a>
+					<a class="enable update" onclick="apps.setting.page('update')"><img src="apps/icons/setting/update.png">Windows Update</a>
+					<span class="focs"></span>
+				</list>
+			</div>
+			<div class="page">
+				<div class="cnt system show">
+					<p class="title">System</p>
+					<div style="display: flex;">
+						<p class="s-icon" style="font-size: 70px;margin: -8px 10px 0px 20px;"></p>
+						<div>
+							<p style="font-size: 28px;text-overflow: ellipsis;white-space: nowrap;">Trung17t</p>
+							<p style="color: #7f7f7f;margin:-8px 0 -5px 0;">Local Account</p>
+							<a style="color: var(--href);text-decoration: underline !important;;" class="a">Sign in</a>
+						</div>
+					</div>
+					<div class="setting-list">
+						<a><icon></icon><div><p>Display</p><p>Display、Brightness、Night mode、Display description</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Sound</p><p>Sound level、Input、Output、Sound devices</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Notfication</p><p>Alerts from systems and apps</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Focus Assistant</p><p>Notifications, automated rules</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon class="b">&#xF186;</icon><div><p>Power</p><p>Sleep、Battery usage、Power saving mode</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Storage</p><p>Storage spaces, Drives, Configuration rules</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Multitasking</p><p>Snap to window, Desktop, Dask switching</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Activation</p><p>Activation status, Subscription, Product key</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Troubleshooting</p><p>Suggested troubleshooting, Preferences, and history</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Recovery</p><p>Reset, Advanced Startup, Return</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Project this computer</p><p>Permissions, Pairing PIN, Discoverability</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Remote desktop</p><p>Remote desktop user, connection permissions</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Clipboard</p><p>Clipping and copying history, Synchronization, Purge</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>About</p><p>Device specifications, Rename PC, Windows Specifications</p></div><i class="bi bi-chevron-right"></i></a>
+					</div>
+				</div>
+				<!-- 蓝牙与设备  @Junchen Yi 2023-9-9-->
+				<div class="cnt blueteeth">
+					<p class="title">Bluetooth with devices</p>
+					<div style="display: flex;">
+						<p class="s-icon" style="font-size: 70px;margin: -8px 10px 0px 20px;"></p>
+						<div>
+							<p style="color: #7f7f7f;margin:-8px 0 -5px 0;">My Device's Name</p>
+							<p style="font-size: 28px;text-overflow: ellipsis;white-space: nowrap;">Blueteeth-PingGai</p>
+							<p class="blueteeth-tips-text" style="color: #7f7f7f;margin:-8px 0 -5px 0;">This is your name in the Bluetooth list of other devices</p>
+							<a style="color: var(--href);text-decoration: underline !important;;" class="a">Rename</a>
+						</div>
+					</div>
+					<div class="setting-list">
+						<a><icon></icon><div><p>Connect</p><p>Search for new Bluetooth devices</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Equipment</p><p>Bluetooth mouse, Keyboard, other Bluetooth device</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Printers and scanners</p><p>Set up and troubleshoot printers</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Mobile phone</p><p>Access photos, files, and more from your Android device</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Touchpad</p><p>Tap, Scroll, ZXoom, Gesture</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Stylus and touch</p><p>Set up stylus, set up touch screen</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>USB device</p><p>Connect more devices via USB...</p></div><i class="bi bi-chevron-right"></i></a>
+					</div>
+				</div>
+				<!-- 蓝牙与设备 end -->
+				<!-- 网络和 Internet  @Junchen Yi 2023-9-10-->
+				<div class="cnt network">
+					<p class="title">Network and Internet</p>
+					<div style="display: flex;">
+						<p class="s-icon" style="font-size: 70px;margin: -8px 15px 0px 20px;"></p>
+						<div>
+							<p style="color: #7f7f7f;margin:-8px 0 -5px 0;">Wifi connected</p>
+							<p style="font-size: 28px;text-overflow: ellipsis;white-space: nowrap;">DokiDokiLC</p>
+							<a style="color: var(--href);text-decoration: underline !important;;" class="a">Disconnect</a>
+						</div>
+					</div>
+					<div class="setting-list">
+						<a><icon></icon><div><p>Wireless LAN</p><p>Connect and manage connected networks</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Mobile network not connected</p><p>Access the Internet via mobile networks</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>VPN</p><p>Add, connect, manage</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Mobile Internet</p><p>Share internet over native mobile network</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Airplane mode</p><p>Suspend all communications and device connections</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>代理</p><p>Proxy server for Wifi and Ethernet</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Dial</p><p>Make calls via Wifi network</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Advanced settings</p><p>View all network adapters, network reset</p></div><i class="bi bi-chevron-right"></i></a>
+					</div>
+				</div>
+				<!-- 网络和 Internet end  @Junchen Yi -->
+				<div class="cnt appearance">
+					<p class="title">Personalize</p>
+					<div class="setting-list" style="margin-top: 10px;">
+						<a class="dp app-color" onclick="$('.dp.app-color').toggleClass('show');">
+							<icon></icon>
+							<div>
+								<p>Color</p>
+								<p>Set color theme for Windows</p>
+							</div><i class="bi bi-chevron-down"></i>
+						</a>
+						<div class="dp app-color">
+							<p>Current color</p>
+							<div class="color"
+								style="background: linear-gradient(120deg,var(--theme-1),var(--theme-2));"></div>
+							<br />
+							<p>Custom color</p>
+							<div style="display: flex;">
+								<div class="a act color theme1" style="background: #47acff"
+									onclick="$('div.app-color>div>input.theme1inp')[0].click();"></div>
+								<input type="color" class="theme1inp"
+									onchange="$('div.app-color>div>.color.theme1').css('background-color',this.value);"
+									value="#47acff">
+								<div
+									style="width: 10px;height: 1px;background-color: var(--text);margin: 17px 5px 0 10px;">
+								</div>
+								<div class="a act color theme2" style="background: #1168ae"
+									onclick="$('div.app-color>div>input.theme2inp')[0].click();"></div>
+								<input type="color" class="theme2inp"
+									onchange="$('div.app-color>div>.color.theme2').css('background-color',this.value);"
+									value="#1168ae">
+								<a class="a button" style="margin-left: 20px;" onclick="$(':root').css('--theme-1',$('div.app-color>div>input.theme1inp').val());
+									$(':root').css('--theme-2',$('div.app-color>div>input.theme2inp').val());setData('color1',$('div.app-color>div>input.theme1inp').val());
+									setData('color2',$('div.app-color>div>input.theme2inp').val())">应用</a>
+							</div>
+						</div>
+						<a class="dp theme" onclick="$('.dp.theme').toggleClass('show');if (!($('#set-theme>.a').length)) apps.setting.theme_get();">
+							<icon>&#xE771;</icon><div><p>Theme</p><p>Set a theme for Windows Want<span class="a jump" win12_title="https://github.com/tjy-gitnub/win12-theme" onclick="window.open('https://github.com/tjy-gitnub/win12-theme','_blank')">上传自己的主题</span>?</p></div><i class="bi bi-chevron-down"></i></a>
+						<div class="dp theme" id="set-theme">
+							<loading>
+								<svg width="30px" height="30px" viewBox="0 0 16 16">
+									<circle cx="8px" cy="8px" r="7px"
+										style="stroke:#7f7f7f50;fill:none;stroke-width:3px;"></circle>
+									<circle cx="8px" cy="8px" r="7px" style="stroke:#2983cc;stroke-width:3px;"></circle>
+								</svg>
+							</loading>
+						</div>
+						<div class="border-radius"><icon></icon><div><p>Rounded corners</p><p>Set whether to enable rounded corners in the system interface</p></div>
+							<div class="alr">
+								<a class="a checkbox checked" id="sys_setting_1" onclick="$(this).toggleClass('checked');$(':root').toggleClass('nobr');sys_setting[0]=1-sys_setting[0];saveDesktop();"></a>
+							</div>
+						</div>
+						<div class="border-radius"><icon></icon><div><p>Animation</p><p>System interface element transition animation</p></div>
+							<div class="alr">
+								<a class="a checkbox checked" id="sys_setting_2" onclick="$(this).toggleClass('checked');$(':root').toggleClass('notrans');sys_setting[1]=1-sys_setting[1];saveDesktop();"></a>
+							</div>
+						</div>
+						<div class="border-radius"><icon></icon><div><p>Shadow</p><p>Add shadow effects to system interface elements</p></div>
+							<div class="alr">
+								<a class="a checkbox checked" id="sys_setting_3" onclick="$(this).toggleClass('checked');$(':root').toggleClass('nosd');sys_setting[2]=1-sys_setting[2];saveDesktop();"></a>
+							</div>
+						</div>
+						<div class="border-radius"><icon></icon><div><p>Multi-window transparency</p><p>Turn on transparency for all windows, not just the focused window<span class="a jump" win12_title="开启后将占用大量GPU,可能造成卡顿">详细</span></p></div>
+							<div class="alr">
+								<a class="a checkbox" id="sys_setting_4" onclick="$(this).toggleClass('checked');$(':root').toggleClass('moreblur');sys_setting[3]=1-sys_setting[3];saveDesktop();"></a>
+							</div>
+						</div>
+						<div class="border-radius"><icon>&#xE621;</icon><div><p>Mica effect (experimental)</p><p>Enable mica effect for focused window <a class="a jump" onclick="shownotice('feedback')">Feedback</a></p></div>
+							<div class="alr">
+								<a class="a checkbox" id="sys_setting_5" onclick="$(this).toggleClass('checked');$(':root').toggleClass('mica');sys_setting[4]=1-sys_setting[4];saveDesktop();"></a>
+							</div>
+						</div>
+						<div class="border-radius"><icon><i class="bi bi-music-note-beamed"></i></icon><div><p>Boot music</p><p>Whether to enable boot music</p></div>
+							<div class="alr">
+								<a class="a checkbox checked" id="sys_setting_6" onclick="sys_setting[5]=1-sys_setting[5];document.getElementById('sys_setting_6').setAttribute('class', 'a checkbox' + (sys_setting[5]?' checked':''));saveDesktop();"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 应用  @Junchen Yi 2023-9-11-->
+				<div class="cnt apps">
+					<p class="title">Application</p>
+					<div class="setting-list">
+						<a><icon></icon><div><p>Apps and features</p><p>Installed applications, application execution aliases</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Default application</p><p>Defaults for file and link types, other defaults</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Offline map</p><p>Downloads, storage locations, map updates</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Optional content</p><p>Provide extra functionality for your device</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Website application</p><p>Websites that can be opened in an app instead of a browser</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Video</p><p>Video format adjustments, HDR streaming, battery options</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Startup items</p><p>Applications that launch automatically on login</p></div><i class="bi bi-chevron-right"></i></a>
+					</div>
+				</div>
+				<!-- 应用 end  @Junchen Yi -->
+				<!-- 账户  @Junchen Yi 2023-9-11-->
+				<div class="cnt user">
+					<p class="title">Account</p>
+					<div style="display: flex;">
+						<a class="a user" style="display:flex">
+							<svg viewBox="0,0,257,344" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 100px;height: 100px;background-color: var(--hover-b);/* box-shadow: 0 0 10px var(--sd); */width: 60px;width: 60px;height: 60px;border-radius: 50%;padding: 11px;margin-right: 15px;margin-bottom: 15px;" overflow="hidden"><defs><clipPath id="user-clip1"><rect x="382" y="195" width="257" height="344" /></clipPath><linearGradient x1="351.462" y1="233.56" x2="669.496" y2="500.422" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="user-fill3"><stop offset="0" stop-color="#A964C8" /><stop offset="0.35" stop-color="#A964C8" /><stop offset="0.87" stop-color="#2D8AD5" /><stop offset="1" stop-color="#2D8AD5" /></linearGradient><linearGradient x1="351.462" y1="233.56" x2="669.496" y2="500.422" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="user-fill4"><stop offset="0" stop-color="#A964C8" /><stop offset="0.35" stop-color="#A964C8" /><stop offset="0.87" stop-color="#2D8AD5" /><stop offset="1" stop-color="#2D8AD5" /></linearGradient></defs><g clip-path="url(#user-clip1)" transform="translate(-382 -195)"><path d="M637.755 433.872C642.215 515.221 579.577 537.983 508.011 537.983 436.444 537.983 376.676 507.833 383.513 437.11 383.109 425.234 389.59 414.133 398.634 409.891 413.82 402.768 444.753 402.936 507.484 402.997 570.214 403.058 609.164 402.279 621.521 407.947 633.878 413.614 638.011 424.609 637.755 433.872Z" fill="url(#user-fill3)" fill-rule="evenodd" /><path d="M422 285C422 235.847 461.623 196 510.5 196 559.377 196 599 235.847 599 285 599 334.153 559.377 374 510.5 374 461.623 374 422 334.153 422 285Z" fill="url(#user-fill4)" fill-rule="evenodd" /></g></svg>
+							<div style="margin-top: 5px;">
+								<p>Lã Thành Trung</p>
+								<p>lttthedev@gmail.com</p>
+							</div>
+						</a>
+					</div>
+					<div class="setting-list">
+						<a><icon></icon><div><p>Your Microsoft account</p><p>Subscriptions, billing, etc.</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Your account information</p><p>Accounts used by email, calendar, and contacts</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Login options</p><p>Windows Hello, security key, password, dynamic lock</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Email and Account</p><p>Accounts used by email, calendar, and contacts</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Family</p><p>Manage your family group, edit account types and device permissions</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Windows Backup</p><p>Back up your files, apps, preferences and restore them across devices</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Other users</p><p>Device access, work or school users, kiosk assigned access</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Access work or school account</p><p>Organizational resources such as email, applications, and the web</p></div><i class="bi bi-chevron-right"></i></a>
+					</div>
+				</div>
+				<!-- 账户 end -->
+				<!-- 时间  @Junchen Yi 2023-9-17-->
+				<div class="cnt time">
+					<p class="title">Time and language</p>
+					<div class="settingTimeItem">
+						<p class="settingTimeTitle">Current device time:</p>
+						<span class="settingTime"></span>
+					</div>
+					<div class="setting-list">
+						<a><icon></icon><div><p>Date and time</p><p>Time zone, automatic clock setting, calendar display</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Language and region</p><p>Windows and some applications format the date and time based on your region</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Enter</p><p>Touch keyboard, text suggestions, preferences</p></div><i class="bi bi-chevron-right"></i></a>
+						<a><icon></icon><div><p>Reading and audio input</p><p>Speech language, speech recognition microphone settings, sound</p></div><i class="bi bi-chevron-right"></i></a>
+						<a class="selectLanguageA"><icon></icon><div><p>Windows Display language</p><p>Windows features such as Settings and File Explorer will appear in this language</p></div>
+							<select class="languageSelect bi-chevron-right">
+								<option value="en" selected>English</option>
+								<option value="es">Español (Spanish)</option>
+								<option value="fr">Français (French)</option>
+								<option value="de">Deutsch (German)</option>
+								<option value="zh">中文 (Chinese)</option>
+								<option value="ja">日本語 (Japanese)</option>
+								<option value="ko">한국어 (Korean)</option>
+								<option value="ar">العربية (Arabic)</option>
+								<option value="ru">Русский (Russian)</option>
+								<option value="pt">Português (Portuguese)</option>
+								<option value="it">Italiano (Italian)</option>
+								<option value="nl">Nederlands (Dutch)</option>
+								<option value="hi">हिन्दी (Hindi)</option>
+								<option value="sv">Svenska (Swedish)</option>
+								<option value="fi">Suomi (Finnish)</option>
+								<option value="da">Dansk (Danish)</option>
+								<option value="no">Norsk (Norwegian)</option>
+								<option value="tr">Türkçe (Turkish)</option>
+								<option value="pl">Polski (Polish)</option>
+								<option value="th">ภาษาไทย (Thai)</option>
+							</select>
+						</a>
+					</div>
+				</div>
+				<!-- 时间 end -->
+				<div class="cnt safe">
+					<p class="title">Privacy and security</p>
+					<div class="setting-list">
+						<a onclick="localStorage.setItem('desktop','[]');setIcon();"><icon><i class="bi bi-trash3"></i></icon><div><p>Clear desktop icons</p><p>This will clear all user-defined icons</p></div><i class="bi bi-chevron-right"></i></a>
+					</div>
+				</div>
+				<div class="cnt update">
+					<p class="title">Windows Update</p>
+					<div class="lo">
+						<svg viewBox="0 0 65 65"version="1.1" id="svg5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs2"><linearGradient id="linearGradient12966"><stop style="stop-color:#1946ff;stop-opacity:1;"offset="0"id="stop12962"/><stop style="stop-color:#3eddff;stop-opacity:1;"offset="1"id="stop12964"/></linearGradient><linearGradient id="linearGradient10659"><stop style="stop-color:#6c00e8;stop-opacity:1;"offset="0"id="stop10655"/><stop style="stop-color:#d05ed6;stop-opacity:1;"offset="1"id="stop10657"/></linearGradient><linearGradient xlink:href="#linearGradient10659"id="linearGradient10661"x1="40.558044"y1="64.876854"x2="103.16348"y2="64.876854"gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#linearGradient10659"id="linearGradient12869"gradientUnits="userSpaceOnUse"x1="40.558044"y1="64.876854"x2="103.16348"y2="64.876854"/><linearGradient xlink:href="#linearGradient10659"id="linearGradient12871"gradientUnits="userSpaceOnUse"x1="40.558044"y1="64.876854"x2="103.16348"y2="64.876854"/><linearGradient xlink:href="#linearGradient12966"id="linearGradient12968"x1="40.558044"y1="64.876854"x2="103.16348"y2="64.876854"gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#linearGradient12966"id="linearGradient13788"gradientUnits="userSpaceOnUse"x1="40.558044"y1="64.876854"x2="103.16348"y2="64.876854"/><linearGradient xlink:href="#linearGradient12966"id="linearGradient13790"gradientUnits="userSpaceOnUse"x1="40.558044"y1="64.876854"x2="103.16348"y2="64.876854"/></defs><g id="layer1"><g id="g8420"transform="rotate(-173.25016,50.599831,57.584909)"style="stroke:url(#linearGradient10661)"><path style="fill:none;stroke:url(#linearGradient12869);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"id="path234-2"d="M 43.058046,79.121117 A 28.487005,28.487005 0 0 1 66.602472,51.066164 28.487005,28.487005 0 0 1 98.316952,69.38588"/><path style="fill:none;stroke:url(#linearGradient12871);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"d="M 85.756154,73.849626 100.66351,72.185133 98.999027,57.27777"id="path1617-6"/></g><g id="g8420-2"transform="rotate(6.74984,459.81282,-281.39813)"style="stroke:url(#linearGradient12968);stroke-opacity:1"><path style="fill:none;stroke:url(#linearGradient13788);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"id="path234-2-2"d="M 43.058046,79.121117 A 28.487005,28.487005 0 0 1 66.602472,51.066164 28.487005,28.487005 0 0 1 98.316952,69.38588"/><path style="fill:none;stroke:url(#linearGradient13790);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"d="M 85.756154,73.849626 100.66351,72.185133 98.999027,57.27777"id="path1617-6-0"/></g></g></svg>
+						<div class="update-main">
+							<div class="part">
+								<p class="notice">Checking for updates...</p>
+								<p class="detail"></p>
+							</div>
+							<div><a class="a button" style="font-size: 16px;margin-top: -7.5px;" onclick="apps.setting.checkUpdate()">Check for updates</a></div>
+						</div>
+					</div>
+					<div class="setting-list">
+						<div class="update-now"><icon>&#xE794;</icon><div><p>Checking for updates...</p><p></p></div><div class="alr"><a class="a button" style="font-size: 16px;margin-top: -7.5px;" onclick="sendToSw({ head: 'update' }); localStorage.setItem('update', true); shownotice('setting.update')">Update</a></div></div>
+						<a onclick="openapp('about');$('#win-about>.update').addClass('show');$('#win-about>.about').removeClass('show');"><icon>&#xE946;</icon><div><p>Version history</p><p>View version history function</p></div><i class="bi bi-chevron-right"></i></a>
+						<a onclick="sendToSw({ head: 'update',force:true })"><icon>&#xE896;</icon><div><p>Download full content</p><p>When there is an update or system problem, use this option to download the latest complete content.</p></div><i class="bi bi-chevron-right"></i></a>
+						<div><icon></icon><div><p>Automatic updates</p><p>Set whether to enable automatic updates</p></div>
+							<div class="alr">
+								<a class="checkbox checked a" onclick="$(this).toggleClass('checked'); autoUpdate = !autoUpdate; localStorage.setItem('autoUpdate', autoUpdate)"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="window explorer tabs">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/explorer.svg" class="icon">
+			<!-- <p style="width:min-content">文件资源管理器</p> -->
+			<div class="tabs">
+			</div>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('explorer')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('explorer')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('explorer')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/explorer.svg" class="icon">
+		</div>
+		<div class="content" id="win-explorer">
+			<div class="path">
+				<a class="a btn btn-icon back" onclick="apps.explorer.back(apps.explorer.tabs[apps.explorer.now][0])"><i class="bi bi-arrow-left"></i></a>
+				<a class="a btn btn-icon front" onclick="apps.explorer.front(apps.explorer.tabs[apps.explorer.now][0])"><i class="bi bi-arrow-right"></i></a>
+				<a class="a btn btn-icon goback"><i class="bi bi-arrow-up"></i></a>
+				<p class="tit"></p>
+				<div class="search">
+					<input type="text" class="input" placeholder="Enter what you are searching for here">
+					<input-before class="bi bi-search"></input-before>
+				</div>
+			</div>
+			<div class="page">
+				<div class="menu">
+					<div class="card pinned">
+						<p class="title"><span style="font: 15px;">📌</span> Pinned</p>
+						<list>
+							<a><img src="apps/icons/explorer/qa.png">Quick Access</a>
+							<a><img src="apps/icons/explorer/od.png">OneDrive</a>
+							<a class="check" onclick="apps.explorer.reset();"><span
+									style="background:linear-gradient(180deg, var(--theme-1), var(--theme-2));width:4px;height: 19px;border-radius: 10px;margin-left: -12px;margin-right: 8px;margin-top: 1px;"></span>
+								<img src="apps/icons/explorer/thispc.svg">This PC</a>
+							<a><img src="apps/icons/explorer/rb.png">Recycle Bin</a>
+						</list>
+					</div>
+					<div class="card tags">
+						<p class="title"><span style="font: 15px;">🏷</span> Label</p>
+						<list>
+							<a><span style="background-color: red;"></span>Red</a>
+							<a><span style="background-color: #3981d9;"></span>Blue</a>
+							<a><span style="background-color: yellow;"></span>Yellow</a>
+							<a><span style="background-color: green;"></span>Green</a>
+							<a><span style="background-color: #fc9816;"></span>Orange</a>
+							<a><span style="background-color: purple;"></span>Purple</a>
+							<a><span style="background-color: #ffcad4;"></span>Pink</a>
+						</list>
+					</div>
+				</div>
+				<div class="main">
+					<div class="tool micaalt">
+						<a class="a b t act"
+							onclick="apps.explorer.add($('#win-explorer>.path>.tit')[0].dataset.path,'新建文本文档.txt')"><img
+								src="apps/icons/explorer/tool-new.png">New</a>
+						<div class="hr"></div>
+						<a class="a b act"><img src="apps/icons/explorer/tool-cut.png"></a>
+						<a class="a b act"><img src="apps/icons/explorer/tool-copy.png"></a>
+						<a class="a b act"><img src="apps/icons/explorer/tool-paste.png"></a>
+						<a class="a b act"><img src="apps/icons/explorer/tool-rename.png"></a>
+						<div class="hr"></div>
+						<a class="a b t act"><img src="apps/icons/explorer/tool-sort.png">Sort by</a>
+						<a class="a b t act"><img src="apps/icons/explorer/tool-view.png">Layout</a>
+					</div>
+					<div class="content" onclick="apps.explorer.del_select()"
+						oncontextmenu="return showcm(event,'explorer.content',null);">
+						<div class="view">
+							<!-- 文件列表  -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="window calc">
+		<div class="titbar">
+			<img src="icon/calc.svg" class="icon">
+			<p>Caculator</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('calc')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" style="pointer-events: none;color: #777;"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('calc')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/calc.svg" class="icon">
+		</div>
+		<div class="content" id="win-calc">
+			<div class="container">
+			<input id="calc-input" readonly="true" value="0" onkeydown="
+				switch (event.key) {
+					case '+':
+						appCalculator.func_key(1);
+						appCalculator.check($('#win-calc>.keyb>.jia')[0]);
+						break;
+					case '-':
+						appCalculator.func_key(2);
+						appCalculator.check($('#win-calc>.keyb>.jian')[0]);
+						break;
+					case '*':
+						appCalculator.func_key(3);
+						appCalculator.check($('#win-calc>.keyb>.cheng')[0]);
+						break;
+					case '/':
+						appCalculator.func_key(4);
+						appCalculator.check($('#win-calc>.keyb>.chu')[0]);
+						break;
+					case '=':
+						appCalculator.eq();
+						break;
+					case 'Enter':
+						appCalculator.eq();
+						break;
+					case 'Backspace':
+						appCalculator.backspace();
+						break;
+					case '.':
+						appCalculator.point();
+						break;
+				}
+				if (!isNaN(event.key)) {
+					appCalculator.number_key(Number(event.key));
+				}
+			"></input>
+			</div>
+			
+			<div class="keyb">
+				<a class="a b" onclick="appCalculator.square('calc-input')">𝑥²</a>
+				<a class="a b" onclick="appCalculator.squareRoot('calc-input')">√𝑥</a>
+				<a class="a b" onclick="appCalculator.clear_num('calc-input')">C</a>
+				<a class="a b u jia" onclick="appCalculator.func_key(1); appCalculator.check(this);">+</a>
+				<a class="a b" onclick="appCalculator.number_key(7);">7</a>
+				<a class="a b" onclick="appCalculator.number_key(8);">8</a>
+				<a class="a b" onclick="appCalculator.number_key(9);">9</a>
+				<a class="a b u jian" onclick="appCalculator.func_key(2); appCalculator.check(this);">-</a>
+				<a class="a b" onclick="appCalculator.number_key(4);">4</a>
+				<a class="a b" onclick="appCalculator.number_key(5);">5</a>
+				<a class="a b" onclick="appCalculator.number_key(6);">6</a>
+				<a class="a b u cheng" onclick="appCalculator.func_key(3); appCalculator.check(this);">×</a>
+				<a class="a b" onclick="appCalculator.number_key(1);">1</a>
+				<a class="a b" onclick="appCalculator.number_key(2);">2</a>
+				<a class="a b" onclick="appCalculator.number_key(3);">3</a>
+				<a class="a b u chu" onclick="appCalculator.func_key(4); appCalculator.check(this);">÷</a>
+				<a class="a b" onclick="appCalculator.point()">.</a>
+				<a class="a b" onclick="appCalculator.number_key(0);">0</a>
+				<a class="a b" onclick="appCalculator.backspace('calc-input')"><i class="bi bi-backspace"></i></a>
+				<a class="a b ans u" onclick="if(!appCalculator.eq('calc-input')){ appCalculator.clear_num(); shownotice('ZeroDivision')}">=</a>
+			</div>
+		</div>
+	</div>
+	<div class="window about">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/about.svg" class="icon">
+			<p>About Windows 12 Web Edition</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('about')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('about')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('about')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/about.svg" class="icon">
+		</div>
+		<div class="content" id="win-about">
+			<div class="menu">
+				<list class="focs">
+					<a onclick="$('#win-about>.about').addClass('show');$('#win-about>.update').removeClass('show');"><img src="apps/icons/about/info.svg" height="17px" width="19px">Introduction</a>
+					<a onclick="$('#win-about>.update').addClass('show');$('#win-about>.about').removeClass('show');"><img src="apps/icons/about/update.svg" height="20px" width="18px">Update record</a>
+				</list>
+			</div>
+			<div class="cnt about">
+				<h1 class="tit"><span></span>Windows 12 Web Edition</h1>
+				<div style="margin-left: 20px;">
+					<h2 class="tit"><span></span>Introduction</h2>
+					<p>&emsp;&emsp;Windows 12 Web version is an open source project created by Tan Jingyuan, which uses HTML, CSS and JavaScript to simulate and innovate 
+					<p>&emsp;&emsp;operating systems on the Internet.。</p>
+					<p>&emsp;&emsp;This project has been published to GitHub，<a onclick="window.open('https://github.com/tjy-gitnub/win12','_blank');" win12_title="https://github.com/tjy-gitnub/win12" class="jump">Click here to view</a>。</p>
+					<p>&emsp;&emsp;If you have any comments or suggestions about the project, please post it on GitHub<a onclick="window.open('https://github.com/tjy-gitnub/win12/issues','_blank');" win12_title="https://github.com/tjy-gitnub/win12/issues" class="jump">Submit issues</a>, your issue will be resolved as quickly as possible.</p>
+					<p>&emsp;&emsp;Original Author Xingyuan, click to <a onclick="window.open('https://tjy-gitnub.github.io/','_blank');" win12_title="https://tjy-gitnub.github.io/" class="jump">learn more</a>。</p>
+					<h2 class="tit"><span></span>Open source instructions</h2>
+					<p>&emsp;&emsp;This project is an open source project. This project uses the EPL v2.0 open source license. The open source license is a </p>
+					<p>&emsp;&emsp;legally binding contract. Please consciously abide by the open source license and respect the labor of others.</p>
+					<p>&emsp;&emsp;Under the license, you can propagate, distribute, modify, and redistribute the project, including for personal and commercial use.</p>
+					<p>&emsp;&emsp;But you must give the source code,<strong>Includes author, project link, etc.</strong>, must be open source using the same protocol.</p>
+					<p>&emsp;&emsp;If the source code of this project is released together with your private source code as part of the project, you can use other </p>
+					<p>&emsp;&emsp;licenses, But declare the content of the EPL part and declare that this part continues to follow the EPL agreement。</p>
+					<p>&emsp;&emsp;It is not added or modified on the basis of this project. It only refers to the source code. It does not need to be open source, but it is only for learning purposes。</p>
+					<h2 class="tit"><span></span>Special thanks to</h2>
+					<p>&emsp;&emsp;<strong>Special thanks to @NB-Group</strong></p>
+					<p>&emsp;&emsp;NB-Group made important contributions to the back-end development of this project</p>
+					<p>&emsp;&emsp;Special thanks for this!</p>
+					<h2 class="tit"><span></span>Contributor</h2>
+					<p>&emsp;&emsp;Thanks to all project contributors (real-time data, calculation method: the number of Commits)</p>
+					<div id="contri">
+						<loading>
+							<svg width="30px" height="30px" viewBox="0 0 16 16">
+								<circle cx="8px" cy="8px" r="7px" style="stroke:#7f7f7f50;fill:none;stroke-width:3px;">
+								</circle>
+								<circle cx="8px" cy="8px" r="7px" style="stroke:#2983cc;stroke-width:3px;"></circle>
+							</svg>
+						</loading>
+					</div>
+					<h2 class="tit"><span></span>Star</h2>
+					<p>&emsp;&emsp;Grateful<a class="jump" win12_title="Can you give me a star? (will jump to：https://github.com/tjy-gitnub/win12/stargazers)" onclick="window.open('https://github.com/tjy-gitnub/win12/stargazers','_blank')">All those who support us</a>。</p>
+					<div id="StarShow">
+						<loading>
+							<svg width="30px" height="30px" viewBox="0 0 16 16">
+								<circle cx="8px" cy="8px" r="7px" style="stroke:#7f7f7f50;fill:none;stroke-width:3px;">
+								</circle>
+								<circle cx="8px" cy="8px" r="7px" style="stroke:#2983cc;stroke-width:3px;"></circle>
+							</svg>
+						</loading>
+					</div>
+					<h2 class="tit"><span></span>Other</h2>
+					<p>&emsp;&emsp;This project is based on the current version of Windows and is inconsistent with Microsoft's official version of Windows 12。</p>
+					<p>&emsp;&emsp;This project is in no way affiliated with Microsoft and should not be confused with Microsoft operating systems or products, nor is this a Windows 365 cloud PC。</p>
+					<p>&emsp;&emsp;Microsoft, Windows and other demonstration products included in this project are trademarks of Microsoft Corporation。</p>
+				</div>
+			</div>
+			<div class="cnt update">
+				<h1 class="tit"><span></span>Update Log</h1>
+				<div style="margin-left: 20px;">
+					<details><summary><span>v7.3.5</span> Clean up the code</summary><p>
+						&emsp;&emsp;-To rectify the code, contributors must edit the code according to the specifications at the beginning of this file and CONTRIBUTING.md, otherwise it will not be merged. Thank you for your understanding.<br/>
+						&emsp;&emsp;-Redraw some new icons</p>
+						&emsp;&emsp;-Detail optimization and repair</p>
+					</details>
+					<details><summary><span>v7.3.4</span> Edge updates</summary><p>
+						&emsp;&emsp;(Updated from @lh11117)<br>
+						&emsp;&emsp;-Edge supports full screen<br/>
+						&emsp;&emsp;-Edge supports favorites</p>
+					</details>
+					<details><summary><span>v7.3.3</span> Detail optimization</summary><p>
+						&emsp;&emsp;Detail optimization</p>
+					</details>
+					<details><summary><span>v7.3.2</span> Details changed</summary><p>
+						&emsp;&emsp;There is no new content (you can take time to read readme.md, some special circumstances</p>
+					</details>
+					<details><summary><span>v7.3.1</span> Bug fixes and detail optimization</summary><p>
+						&emsp;&emsp;- Delete duplicate words in update.md (update from @ZigaoWang)<br />
+						&emsp;&emsp;- Fix the problem that BIOS cannot be accessed correctly (update from @ludonghengsb)</p>
+					</details>
+					<details><summary><span>v7.3.0</span> Desktop widgets, Dock auto-hide, calculator improvements and Windows updates</summary><p>
+						&emsp;&emsp;(Update via @User782Tec)<br />
+						&emsp;&emsp;-New desktop widgets are added, which can be added to the desktop and adjusted in position<br/>
+						&emsp;&emsp;-A new editing mode has been added, which can quickly edit the position of widgets and provides related shortcut entrances<br/>
+						&emsp;&emsp;-Added the function of making the window full screen and the Dock automatically hidden when not in use<br/>
+						&emsp;&emsp;-Added back/forward functionality to Microsoft Edge browser and file explorer<br/>
+						&emsp;&emsp;-The accuracy and safety issues of the optimized calculator<br/>
+						&emsp;&emsp;-Rewrite the update mechanism and improve Windows Update<br/>
+						&emsp;&emsp;-Fixed the problem of invalid right-clicking files in the file explorer<br/>
+						&emsp;&emsp;-Fixed an issue where files in folders could not be displayed correctly in File Explorer<br/>
+						&emsp;&emsp;-Changed the icon of Python Editor<br/>
+						&emsp;&emsp;-Improved open source instructions<br/>
+						&emsp;&emsp;-Other details and fixes</p>
+					</details>
+					<details><summary><span>v7.2.1</span> README update, "About" application displays real-time Star number, and personalized settings support saving</summary><p>
+						&emsp;&emsp;(Updated from @lh11117 )<br/>
+						&emsp;&emsp;-README update<br/>
+						&emsp;&emsp;-The "About" app displays the real-time number of Stars<br/>
+						&emsp;&emsp;-Personalized settings support saving<br /></p>
+						</details>
+						<details><summary><span>v7.2.0</span> Optimize operation, add Windows 12 applications, add WSA</summary><p>
+						&emsp;&emsp;(Updated from @lh11117 )<br />
+						&emsp;&emsp;-Optimized operation<br />
+						&emsp;&emsp;-Add Windows 12 apps<br />
+						&emsp;&emsp;-Add WSA<br />
+						&emsp;&emsp;-Add shutdown command<br />
+						&emsp;&emsp;-Add BIOS system<br />
+						&emsp;&emsp;-Support desktop icon deletion<br />
+						&emsp;&emsp;-A richer file directory<br />
+						&emsp;&emsp;-Task Manager supports pinned<br /></p>
+					</details>
+					<details><summary><span>v7.1.0</span> Further repairs to the calculator, dark mode for offline pages</summary><p>
+						&emsp;&emsp;(Updated from @lh11117)<br />
+						&emsp;&emsp;-Further fixed the calculator accuracy defect and the problem of accepting illegal input content<br />
+						&emsp;&emsp;-Added a dark mode version to the offline interface of the Microsoft Edge browser<br />
+						&emsp;&emsp;-Some other detail fixes<br /></p>
+					</details>
+					<details><summary><span>v7.0.2</span> Calculator repair</summary><p>
+						&emsp;&emsp;(Updates from @cong1223 and @iewnfod)<br />
+						&emsp;&emsp;-Fix the accuracy problem of calculator calculations such as addition, subtraction, multiplication, division, square, square root and other operations (from @cong1223)<br />
+						&emsp;&emsp;-Only allow calc-input to enter numbers (from @iewnfod)<br /></p>
+					</details>
+					<details><summary><span>v7.0.1</span> Explorer tabs, offline interface and news</summary><p>
+						&emsp;&emsp;-File Explorer tab (from @tjy-gitnub)<br />
+						&emsp;&emsp;-Added an offline interface for the Microsoft Edge browser (from @User782Tec)<br />
+						&emsp;&emsp;-New news (from @Nick-DL)<br />
+						&emsp;&emsp;-Optimize some UI<br />
+						&emsp;&emsp;-Detail optimization and repair</p>
+					</details>
+					<details><summary><span>v7.0.0</span> AI assistant, multiple new applications and functions</summary><p>
+						&emsp;&emsp;-Windows 12 AI Copilot (@NB-Group provides api, @tjy-gitnub magic modification)<br />
+						&emsp;&emsp;-Task Manager (provided by @User782Tec)<br />
+						&emsp;&emsp;-Security Center (provided by @NB-Group)<br />
+						&emsp;&emsp;-Adaptive file system (provided by @NB-Group) (Don’t ask me why it’s only released now, ask @NB-Group)<br />
+						&emsp;&emsp;-Window Mica effect (provided by @tjy-gitnub, enabled in settings)<br />
+						&emsp;&emsp;-File Explorer Navigation Bar (Contributed by @User782Tec)<br />
+						&emsp;&emsp;-Task Manager Widget (provided by @User782Tec)<br />
+						&emsp;&emsp;-New wallpaper (provided by @tjy-gitnub)<br />
+						&emsp;&emsp;-New news (from @for-the-zero)<br />
+						&emsp;&emsp;-Fixed catastrophic terminal bug<br />
+						&emsp;&emsp;-Optimize some UI<br />
+						&emsp;&emsp;-Detail optimization and repair</p>
+					</details>
+					<details>
+					<summary><span>v6.0.0</span> File system, window size, weather widget, taskbar widget</summary>
+					<p>
+						&emsp;&emsp;-New file system (provided later by @NB-Group)<br />
+						&emsp;&emsp;-Window resizing functionality (provided by @User782Tec)<br />
+						&emsp;&emsp;-Save desktop layout (provided by @User782Tec)<br />
+						&emsp;&emsp;-Weather widget (provided by @tjy-gitnub)<br />
+						&emsp;&emsp;-Widget added to taskbar (provided by @tjy-gitnub, currently only supports weather widget)<br />
+						&emsp;&emsp;-Introducing a new prompt box (provided by @tjy-gitnub)<br />
+						&emsp;&emsp;-New feedback channel<br />
+						&emsp;&emsp;-Fixed the problem that sometimes the boot animation could not be displayed correctly<br />
+						&emsp;&emsp;-Fixed the problem that the login interface is not displayed<br />
+						&emsp;&emsp;-Adapt to new theme formats and speed up preview display<br />
+						&emsp;&emsp;-Detail optimization and repair</p>
+					</details>
+					<!-- 全部列出来那这个更多意义何在？ -->
+					<a onclick="window.open('update.md','_blank');" win12_title="update.md" class="a jump" style="text-align: center;">More</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="window notepad" onclick="if(font_window){playWindowsBackground();showwin('notepad-fonts');}">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/notepad.svg" class="icon">
+			<p>Notepad</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('notepad');hidewin('notepad-fonts', 'configs')"><i
+						class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('notepad')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('notepad')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/notepad.svg" class="icon">
+		</div>
+		<div class="content" id="win-notepad">
+			<div class="tool">
+				<a class="a" onmouseover="showdp(this,'notepad.file',null)" onmouseleave="hidedp()">File</a>
+				<a class="a" onmouseover="showdp(this,'notepad.edit',null)" onmouseleave="hidedp()">Edit</a>
+				<a class="a" onmouseover="showdp(this,'notepad.view',null)" onmouseleave="hidedp()">Format</a>
+			</div>
+			<div class="text-box" contenteditable="true" spellcheck="false">
+				<p>Type here...</p>
+			</div>
+			<a href="" download="未命名.html" style="opacity: 0;" class="save">Save as</a>
+		</div>
+	</div>
+	<div class="window notepad-fonts">
+		<div class="titbar">
+			<img src="icon/notepad.svg" class="icon">
+			<p>Font</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('notepad-fonts', 'configs');font_window=false;"><i class="bi bi-x-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/notepad.svg" class="icon">
+		</div>
+		<div class="content" id="win-notepad-font">
+			<div class="row">
+				<div class="select-input" id="win-notepad-font-type">
+					<div class="description">Font</div>
+					<input type="text" />
+					<list class="value-box">
+						<a class="option">Arial</a>
+						<a class="option">Book Antiqua</a>
+						<a class="option">Cascadia Code</a>
+						<a class="option">Comic Sans MS</a>
+						<a class="option">Consolas</a>
+						<a class="option">Courier</a>
+						<a class="option">cursive</a>
+						<a class="option">Geneva</a>
+						<a class="option">Georgia</a>
+						<a class="option">Ink Free</a>
+						<a class="option">Lucida Console</a>
+						<a class="option">Microsoft YaHei UI</a>
+						<a class="option">Monaco</a>
+						<a class="option">monospace</a>
+						<a class="option">Palatino Linotype</a>
+						<a class="option">serif</a>
+						<a class="option">Tahoma</a>
+						<a class="option">Imitation Song Dynasty</a>
+						<a class="option">Founder Comfort</a>
+						<a class="option">Chinese regular script</a>
+						<a class="option">Italian</a>
+						<a class="option">宋体</a>
+						<a class="option">Youyuan</a>
+					</list>
+				</div>
+				<div class="select-input" id="win-notepad-font-size">
+					<div class="description">size</div>
+						<input type="text" />
+						<list class="value-box">
+							<a class="option">No. 1</a>
+							<a class="option">Xiaochu</a>
+							<a class="option">No. 1</a>
+							<a class="option">Primary One</a>
+							<a class="option">No. 2</a>
+							<a class="option">Waiter</a>
+							<a class="option">No. 3</a>
+							<a class="option">Mistress</a>
+							<a class="option">No. 4</a>
+							<a class="option">Little Four</a>
+							<a class="option">No. 5</a>
+							<a class="option">小五</a>
+						</list>
+					</div>
+					<div class="select-input" id="win-notepad-font-style">
+						<div class="description">glyph</div>
+							<input type="text" />
+							<list class="value-box">
+								<a class="option">Normal</a>
+								<a class="option">italic</a>
+								<a class="option">Bold</a>
+								<a class="option">Bold italic</a>
+						</list>
+				</div>
+			</div>
+			<div class="preview">
+				<div class="description">
+					Preview
+				</div>
+				<div class="preview-box">
+					<div>Hello</div>
+					<div>你好</div>
+					<div>こんにちは</div>
+				</div>
+			</div>
+			<div class="buttons">
+				<a class="a submit act" onclick="apps.notepadFonts.commitFont();">Sure</a>
+				<a class="a cancel act" onclick="hidewin('notepad-fonts', 'configs');font_window=false;">Cancel</a>
+			</div>
+		</div>
+	</div>
+	<div class="window terminal terminal-apps">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/terminal.svg" class="icon">
+			<p>Terminal</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('terminal')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('terminal')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('terminal')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/terminal.svg" class="icon">
+		</div>
+
+		<div class="content" id="win-terminal" onmouseup="$('#win-terminal input').focus();" ontouchend="$('#win-terminal input').focus();">
+            <pre>
+				Microsoft Windows [Version 12.0.39035.7324]
+				(c) Microsoft Corporation. all rights reserved.
+			</pre>
+			<pre class="text-cmd"></pre>
+			<pre
+				style="display: flex"><span class="prompt">C:\Windows\System32> </span><input type="text" onkeyup="if (event.keyCode == 13) { apps.terminal.run(); }"></pre>
+		</div>
+	</div>
+	<div class="window python terminal-apps">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/python.svg" class="icon">
+			<p>Python 3.10.2</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('python')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('python')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('python')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/python.svg" class="icon">
+		</div>
+
+		<div class="content" id="win-python" onmouseup="$('#win-python input').focus();" ontouchend="$('#win-python input').focus();">
+            <pre>
+				Python 3.10.2  [MSC v.1912 64 bit (AMD64)] :: Anaconda, Inc. on win32
+				Type "help", "copyright", "credits" or "license" for more information.
+			</pre>
+			<pre class="text-cmd"></pre>
+			<pre>>>> <input type="text" onkeyup="if (event.keyCode == 13) { apps.python.run(); }"></pre>
+		</div>
+	</div>
+	<div class="window edge tabs" onmousemove="if(apps.edge.in_div('over-bar',event)||apps.edge.in_div('edge-path-bar',event)||apps.edge.in_div('edge-titbar',event)){null}else{if(apps.edge.fuls){$('.edge>.titbar').hide();$('.edge>.content>.tool').hide()}}">
+		<div class="resize-bar"></div>
+		<div style="height:3px;width:100%;display: none;" id="over-bar" onmouseover="if(apps.edge.fuls){$('.edge>.titbar').show();$('.edge>.content>.tool').show()}" onmouseleave="if(apps.edge.fuls&&(apps.edge.b1||apps.edge.b2)){$('.edge>.titbar').hide();$('.edge>.content>.tool').hide()}"></div>
+		<div class="titbar" onmouseleave="apps.edge.b1=false;" onmouseover="apps.edge.b1=true;" id="edge-titbar">
+			<img src="icon/edge.svg" class="icon">
+			<p style="display: none;">Microsoft Edge</p>
+			<div class="tabs">
+			</div>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('edge')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('edge');apps.edge.max=!apps.edge.max;" id="edge-max"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="apps.edge.exitfullscreen()" id="fuls-edge-exit" style="display: none;"><i class="bi bi-arrows-angle-contract" id="fuls-edge-i"></i></a>
+				<a class="a wbtg" onclick="minwin('edge')"><i class="bi bi-dash-lg"></i></a>
+				<a class="a wbtg" onclick="apps.edge.fullscreen()" id="fuls-edge"><i class="bi bi-arrows-angle-expand" id="fuls-edge-i"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/edge.svg" class="icon">
+		</div>
+		<div class="content" id="win-edge">
+			<div class="tool" onmouseleave="apps.edge.b2=false;" onmouseover="apps.edge.b2=true;" id="edge-path-bar">
+				<a class="a back" onclick="apps.edge.back(apps.edge.tabs[apps.edge.now][0]);">
+					<i class="bi bi-arrow-left-short" style="font-size: 25px;--top:-5px;"></i>
+				</a>
+				<a class="a front" onclick="apps.edge.front(apps.edge.tabs[apps.edge.now][0]);">
+					<i class="bi bi-arrow-right-short" style="font-size: 25px;--top:-5px;"></i>
+				</a>
+				<a class="a" onclick="apps.edge.reload()">
+					<i class="bi bi-arrow-clockwise"></i>
+				</a>
+				<input type="text" onkeyup="if(event.keyCode==13&&$(this).val()!=''){apps.edge.goto($(this).val())}"
+					placeholder="Search in Bing or enter a URL" class="url" spellcheck="false" id="edge-path">
+				<input type="text" onkeyup="if(event.keyCode==13&&$(this).val()!=''){m_tab.rename('edge',$(this).val());}"
+					placeholder="Name the tab" class="rename" spellcheck="false">
+				<a class="a">
+					<i class="bi bi-info-circle" win12_title="The browser can only access sites that allow nesting. The title of the webpage cannot be obtained due to rule restrictions. Please right-click the tab to name it manually."></i>
+				</a>
+				<script>
+				function add_save(){
+					t = document.getElementById('edge-path').value
+					if(t.length>7){
+						t = t.substring(0,7) + '...';
+					}
+					document.getElementById('save-bar').innerHTML += "<a onclick='apps.edge.goto(`" + document.getElementById('edge-path').value +  "`)' win12_title='" + document.getElementById('edge-path').value + "' class='save-item'><i class='bi bi-file-earmark'></i>" + t + "</a>";
+				}
+				</script>
+				<a class="a" style="filter: contrast(0.2);" onclick="add_save()">
+					<i class="bi bi-star"></i>
+				</a>
+				<a class="a" style="filter: contrast(0.2);">
+					<i class="bi bi-code-slash"></i>
+				</a>
+		    </div>
+			<div id="save-bar" style="margin:10px;margin-top: 3px;">
+				<!--收藏夹-->
+				<a onclick="apps.edge.goto('https://tjy-gitnub.github.io/')" win12_title="https://tjy-gitnub.github.io/" class="save-item"><i class="bi bi-file-earmark"></i>Star source</a>
+				<a onclick="apps.edge.goto('https://www.bing.com')" win12_title="https://www.bing.com" class="save-item"><i class="bi bi-file-earmark"></i>Bing</a>
+			</div>
+			<iframe frameborder="0" class="0 show" onmousemove="if(apps.edge.fuls){$('.edge>.titbar').hide();$('.edge>.content>.tool').hide()}">
+			</iframe>
+		</div>
+	</div>
+	<div class="msg update" oncontextmenu="return showcm(event,'msgupdate',null)">
+		<div class="main" onclick="openapp('about');if($('.window.about').hasClass('min'))minwin('about');
+			$('#win-about>.about').removeClass('show');$('#win-about>.update').addClass('show');
+			$('#win-about>.update>div>details:first-child').attr('open','open')">
+			<p class="tit"></p>
+			<p class="cont"></p>
+		</div>
+		<div class="a hide" onclick="$('.msg').removeClass('show')"><i class="bi bi-arrow-right-short"></i></div>
+	</div>
+	<div class="window vscode webapp">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/vscode.png" class="icon">
+			<p>Visual Studio Code</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('vscode')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('vscode')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('vscode')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/vscode.png" class="icon">
+		</div>
+		<div class="content" id="win-vscode">
+			<!-- <iframe src="https://github1s.com/" frameborder="0" style="width: 100%; height: 100%;" loading="lazy"></iframe> -->
+		</div>
+	</div>
+	<div class="window bilibili webapp">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/bilibili.png" class="icon">
+			<p>Trung17t</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('bilibili')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('bilibili')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('bilibili')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/bilibili.png" class="icon">
+		</div>
+		<div class="content" id="win-bilibili">
+			<!-- <iframe src="https://bilibili.com/" frameborder="0" style="width: 100%; height: 100%;" loading="lazy"></iframe> -->
+		</div>
+	</div>
+	<div class="window wsa">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/wsa.png" class="icon">
+			<p>Windows Subsystem for Android™️</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('wsa')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" style="pointer-events: none;color: #777;"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('wsa')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/wsa.png" class="icon">
+		</div>
+		<div class="content" id="win-wsa" style="margin-bottom:auto;">
+			<iframe src="https://android11react.osrc.com/" frameborder="0" style=" width: 100%;height: 100%;" loading="lazy"></iframe>
+		</div>
+	</div>
+	<div class="window pythonEditor">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/pythonEditor.svg" class="icon">
+			<p>Python Editor</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('pythonEditor')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('pythonEditor')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('pythonEditor')"><i class="bi bi-dash-lg"></i></a>
+				<a class="a wbtg run" onclick="apps.pythonEditor.run();"><i class="bi bi-play"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/pythonEditor.svg" class="icon">
+		</div>
+		<div class="content" id="win-pythonEditor">
+			<div id="win-python-ace-editor"></div>
+			<div class="output" id="output"></div>
+		</div>
+	</div>
+	<div class="window camera">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/camera.svg" class="icon">
+			<p>Camera</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('camera')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('camera')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('camera')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/camera.svg" class="icon">
+		</div>
+		<div class="content" id="win-camera">
+			<div class="video">
+				<video></video>
+			</div>
+			<div class="control">
+				<div>
+					<div class="startbutton act" onclick="apps.camera.takePhoto();"></div>
+				</div>
+			</div>
+			<canvas style="display: none;"></canvas>
+			<a style="display: none;"></a>
+		</div>
+	</div>
+	<div class="window windows12">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/logo.svg" class="icon">
+			<p>Windows 12</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('windows12')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('windows12')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('windows12')"><i class="bi bi-dash-lg"></i></a>
+				<a class="a wbtg" onclick="apps.windows12.init()"><i class="bi bi-arrow-counterclockwise"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/logo.svg" class="icon">
+		</div>
+		<div class="content" id="win-win12">
+			<iframe style="height:100%; width:100%;object-fit:cover;" id="win12-window" frameborder="no"></iframe>
+		</div>
+	</div>
+	<div class="window camera-notice">
+		<div class="titbar">
+			<img src="icon/camera.svg" class="icon">
+			<p>Hint</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('camera-notice');hidewin('camera')"><i
+						class="bi bi-x-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/camera.svg" class="icon">
+		</div>
+		<div class="content" id="win-camera-notice" style="padding: 0px 10px 0px 10px;">
+			<div style="display: flex; width: 100%; justify-content: center; margin-top: 10px; margin-bottom: 10px;">
+				<div
+					style="width: 50px; height: 50px; background-image: url('icon/camera.svg'); background-repeat: no-repeat;">
+				</div>
+			</div>
+			<p>
+				&emsp;&emsp;Welcome to the Camera app! This application is developed by User782Tec and maintained by tjy-gitnub. <br />
+				&emsp;&emsp;While in use, this app will obtain permission to access your camera (for operations such as taking photos). This application will not upload any of your personal information (including the photos taken) to the server, nor will it be disclosed to others. <br />
+				&emsp;&emsp;If you do not agree to the above agreement, you will not be able to use this application.
+			</p>
+			<div class="buttons">
+				<a class="a submit act"
+					onclick="hidewin('camera-notice', 'configs');localStorage.setItem('camera', true);openapp('camera');">Agree and continue</a>
+				<a class="a cancel act" onclick="hidewin('camera-notice')">Disagree</a>
+			</div>
+		</div>
+	</div>
+	<div class="window run">
+		<div class="titbar">
+			<img src="icon/run.svg" class="icon">
+			<p>Run</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('run')"><i class="bi bi-x-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/run.svg" class="icon">
+		</div>
+		<div class="content" id="win-run">
+			<div class="top">
+				<div class="icon"></div>
+				<div class="text">Windows will open the program, folder, document, or Internet resource for you based on the name you enter.</div>
+			</div>
+			<div class="open">
+				<div class="prompt">Open: </div>
+				<input class="input" type="text"
+					onkeyup="if (event.keyCode == 13) { hidewin('run');apps.run.run($('#win-run>.open>input').val()); }">
+			</div>
+			<div class="buttons">
+				<a class="a submit act" onclick="hidewin('run');apps.run.run($('#win-run>.open>input').val())">Sure</a>
+				<a class="a cancel act" onclick="hidewin('run')">Cancel</a>
+			</div>
+		</div>
+	</div>
+	<div class="window whiteboard">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/whiteboard.svg" class="icon">
+			<p>Whiteboard</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('whiteboard')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('whiteboard')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('whiteboard')"><i class="bi bi-dash-lg"></i></a>
+				<a class="a wbtg" onclick="apps.whiteboard.download()"><i class="bi bi-download"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/whiteboard.svg" class="icon">
+		</div>
+		<div class="content" id="win-whiteboard">
+			<a class="download" href="" download="Picture.png"></a>
+			<canvas onmousedown="apps.whiteboard.draw(event);" ontouchstart="apps.whiteboard.draw(event);"></canvas>
+			<div class="toolbar">
+				<div class="tools">
+					<div class="pen1 active" onclick="apps.whiteboard.changePen.call(this)" data-color="red">
+						<svg xmlns="https://www.w3.org/2000/svg" width="76" height="75" viewBox="0 0 760 950"
+							color="#e92a2a">
+							<path
+								d="M120 881c0-155 96-575 144-630 7-9 25-48 40-88 31-82 50-104 71-82 14 15 81 162 120 264 51 136 105 412 105 542v63h-30c-30 0-30-1-30-55v-55H180v55c0 54 0 55-30 55h-30v-69zm343-98l107-6v-44c0-84-95-447-122-464-15-10-148-12-172-3-27 10-114 328-123 452l-6 72h105c58 0 153-3 211-7zm-89-588c-4-8-10-15-15-15s-9 7-9 15 7 15 15 15c9 0 12-6 9-15z"
+								fill="#020202"></path>
+							<path fill="red"
+								d="M150 880v-70h420v140H150v-70zM305 213c10-42 47-123 55-123 9 0 60 112 60 134 0 13-11 16-61 16h-61l7-27z">
+							</path>
+						</svg>
+					</div>
+					<div class="pen2" onclick="apps.whiteboard.changePen.call(this)" data-color="orange">
+						<svg xmlns="https://www.w3.org/2000/svg" width="76" height="75" viewBox="0 0 760 950"
+							color="#e92a2a">
+							<path
+								d="M120 881c0-155 96-575 144-630 7-9 25-48 40-88 31-82 50-104 71-82 14 15 81 162 120 264 51 136 105 412 105 542v63h-30c-30 0-30-1-30-55v-55H180v55c0 54 0 55-30 55h-30v-69zm343-98l107-6v-44c0-84-95-447-122-464-15-10-148-12-172-3-27 10-114 328-123 452l-6 72h105c58 0 153-3 211-7zm-89-588c-4-8-10-15-15-15s-9 7-9 15 7 15 15 15c9 0 12-6 9-15z"
+								fill="#020202"></path>
+							<path fill="orange"
+								d="M150 880v-70h420v140H150v-70zM305 213c10-42 47-123 55-123 9 0 60 112 60 134 0 13-11 16-61 16h-61l7-27z">
+							</path>
+						</svg>
+					</div>
+					<div class="pen3" onclick="apps.whiteboard.changePen.call(this)" data-color="yellow">
+						<svg xmlns="https://www.w3.org/2000/svg" width="76" height="75" viewBox="0 0 760 950"
+							color="#e92a2a">
+							<path
+								d="M120 881c0-155 96-575 144-630 7-9 25-48 40-88 31-82 50-104 71-82 14 15 81 162 120 264 51 136 105 412 105 542v63h-30c-30 0-30-1-30-55v-55H180v55c0 54 0 55-30 55h-30v-69zm343-98l107-6v-44c0-84-95-447-122-464-15-10-148-12-172-3-27 10-114 328-123 452l-6 72h105c58 0 153-3 211-7zm-89-588c-4-8-10-15-15-15s-9 7-9 15 7 15 15 15c9 0 12-6 9-15z"
+								fill="#020202"></path>
+							<path fill="yellow"
+								d="M150 880v-70h420v140H150v-70zM305 213c10-42 47-123 55-123 9 0 60 112 60 134 0 13-11 16-61 16h-61l7-27z">
+							</path>
+						</svg>
+					</div>
+					<div class="pen4" onclick="apps.whiteboard.changePen.call(this)" data-color="green">
+						<svg xmlns="https://www.w3.org/2000/svg" width="76" height="75" viewBox="0 0 760 950"
+							color="#e92a2a">
+							<path
+								d="M120 881c0-155 96-575 144-630 7-9 25-48 40-88 31-82 50-104 71-82 14 15 81 162 120 264 51 136 105 412 105 542v63h-30c-30 0-30-1-30-55v-55H180v55c0 54 0 55-30 55h-30v-69zm343-98l107-6v-44c0-84-95-447-122-464-15-10-148-12-172-3-27 10-114 328-123 452l-6 72h105c58 0 153-3 211-7zm-89-588c-4-8-10-15-15-15s-9 7-9 15 7 15 15 15c9 0 12-6 9-15z"
+								fill="#020202"></path>
+							<path fill="green"
+								d="M150 880v-70h420v140H150v-70zM305 213c10-42 47-123 55-123 9 0 60 112 60 134 0 13-11 16-61 16h-61l7-27z">
+							</path>
+						</svg>
+					</div>
+					<div class="pen5" onclick="apps.whiteboard.changePen.call(this)" data-color="blue">
+						<svg xmlns="https://www.w3.org/2000/svg" width="76" height="75" viewBox="0 0 760 950"
+							color="#e92a2a">
+							<path
+								d="M120 881c0-155 96-575 144-630 7-9 25-48 40-88 31-82 50-104 71-82 14 15 81 162 120 264 51 136 105 412 105 542v63h-30c-30 0-30-1-30-55v-55H180v55c0 54 0 55-30 55h-30v-69zm343-98l107-6v-44c0-84-95-447-122-464-15-10-148-12-172-3-27 10-114 328-123 452l-6 72h105c58 0 153-3 211-7zm-89-588c-4-8-10-15-15-15s-9 7-9 15 7 15 15 15c9 0 12-6 9-15z"
+								fill="#020202"></path>
+							<path fill="blue"
+								d="M150 880v-70h420v140H150v-70zM305 213c10-42 47-123 55-123 9 0 60 112 60 134 0 13-11 16-61 16h-61l7-27z">
+							</path>
+						</svg>
+					</div>
+					<div class="pen6" onclick="apps.whiteboard.changePen.call(this)" data-color="purple">
+						<svg xmlns="https://www.w3.org/2000/svg" width="76" height="75" viewBox="0 0 760 950"
+							color="#e92a2a">
+							<path
+								d="M120 881c0-155 96-575 144-630 7-9 25-48 40-88 31-82 50-104 71-82 14 15 81 162 120 264 51 136 105 412 105 542v63h-30c-30 0-30-1-30-55v-55H180v55c0 54 0 55-30 55h-30v-69zm343-98l107-6v-44c0-84-95-447-122-464-15-10-148-12-172-3-27 10-114 328-123 452l-6 72h105c58 0 153-3 211-7zm-89-588c-4-8-10-15-15-15s-9 7-9 15 7 15 15 15c9 0 12-6 9-15z"
+								fill="#020202"></path>
+							<path fill="purple"
+								d="M150 880v-70h420v140H150v-70zM305 213c10-42 47-123 55-123 9 0 60 112 60 134 0 13-11 16-61 16h-61l7-27z">
+							</path>
+						</svg>
+					</div>
+					<div class="eraser" onclick="apps.whiteboard.changePen.call(this)" data-color="eraser">
+						<img src="apps/icons/whiteboard/marker.png" height="70">
+					</div>
+					<div class="delete" onclick="apps.whiteboard.delete()">
+						<img src="apps/icons/whiteboard/delete.png" height="60">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="window winver">
+		<div class="titbar">
+			<p>关于 Windows</p>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('winver');"><i class="bi bi-x-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+		</div>
+		<div class="content" id="win-winver">
+			<div class="logo">
+				<div class="img"></div>
+				<p>Windows 12</p>
+			</div>
+			<hr>
+			<p>Microsoft Windows</p>
+			<p>Version 25H2 (OS Build 24612.1896)</p>
+			<p>© Microsoft Corporation. all rights reserved. </p>
+				<p style="margin-top: 20px">The Windows 12 Professional operating system and its user interface are protected by trademark laws and other pending or enacted intellectual property laws of the United States and other countries/regions. </p>
+				<div class="bottom">
+			<p>According to the Microsoft Software License Terms, the following users are licensed to use this product</p>
+			<p style="margin:20px 0 0 90px">Administrator</p>
+			</div>
+			<p ondblclick="$(this).hide()" class="a mesg">The above is all nonsense, don’t take it seriously (double-click to hide this message)</p>
+				<div class="buttons">
+			<a class="a submit act" onclick="hidewin('winver');">OK</a>
+			</div>
+		</div>
+	</div>
+	<div class="window taskmgr">
+		<div class="resize-bar"></div>
+		<div class="titbar">
+			<img src="icon/taskmgr.png" class="icon">
+			<span style="font-size: 15px;margin-top: 9px;">Task manager</span><!--这里不能用p，否则会有神奇的特性（bug）发生-->
+			<div style="flex-grow: 1;display: flex;align-items: center;justify-content: center;">
+			    <input type="text" class="input" style="width: 75%;" placeholder="Type the name to search for" id="tsk-search" oninput="apps.taskmgr.generateProcesses()" value=""></input>
+			</div>
+			<div>
+				<a class="a wbtg red" onclick="hidewin('taskmgr')"><i class="bi bi-x-lg"></i></a>
+				<a class="a wbtg max" onclick="maxwin('taskmgr')"><i class="bi bi-app"></i></a>
+				<a class="a wbtg" onclick="minwin('taskmgr')"><i class="bi bi-dash-lg"></i></a>
+			</div>
+		</div>
+		<div class="loadback">
+			<img src="icon/taskmgr.png" class="icon">
+		</div>
+		<div class="content" id="win-taskmgr" style="height:100%">
+			<script> //让设置按钮到最底下
+				setInterval(()=>{
+					document.getElementById('set-seting-to-bottom').style.height = (document.getElementById('win-taskmgr').clientHeight-document.getElementById('tsk-setting').clientHeight*document.getElementById('tsk-pages').getElementsByTagName('a').length-10) + "px";
+				},1145);
+				var hide = false;
+				function fold(){
+					if(!hide){
+						$('.taskmgr>.content>.menu>.focs>a>p').hide()
+						$('.taskmgr>.content>.menu>.focs>a').width('18px')
+						$('.taskmgr>.content>.menu>.focs').width('18px')
+						$('.taskmgr>.content>.menu').width('18px')
+						$('.taskmgr>.content>.menu>.focs>.fold').html('<icon><i class="bi bi-chevron-right"></i></icon>')
+					} else {
+						$('.taskmgr>.content>.menu>.focs>a>p').show()
+						$('.taskmgr>.content>.menu>.focs>a').width('222px')
+						$('.taskmgr>.content>.menu>.focs').width('222px')
+						$('.taskmgr>.content>.menu').width('222px')
+						$('.taskmgr>.content>.menu>.focs>.fold').html('<icon><i class="bi bi-chevron-left"></i></icon>')
+					}
+					hide = !hide
+				}
+				fold();//别问我这里为什么要执行一次，问就是有bug
+			</script> 
+			<div class="menu" style="height:100%">
+				<list class="focs" id="tsk-pages" style="height:100%">
+					<a class="fold" onclick="fold()" style="width:33px;height:33px;margin:0px;" win12_title="Folding (currently still a swing type)"><icon><i class="bi bi-chevron-right"></i></icon></a>
+					<a class="processes check" onclick="apps.taskmgr.page('processes')" win12_title="Process">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="3.5 5.5 29 29">
+							<path d="M 5 11 L 5 29 C 5 32 6 33 9 33 L 14 33 C 17 33 18 32 18 29 L 18 7 L 9 7 C 6 7 5 8 5 11 M 18 7 L 27 7 C 30 7 31 8 31 11 L 31 16 C 31 19 30 20 27 20 L 5 20" stroke="var(--text)" stroke-width="1.5" fill="none"/>
+						</svg>
+						<p>Process</p>
+					</a>
+					<a class="performance" onclick="apps.taskmgr.page('performance')" win12_title="性能"><icon class="s-icon"></icon><p>Performance</p></a>
+					<!--添加新的分页请在这条注释前面添加-->
+					<div id="set-seting-to-bottom"></div>
+					<a class="setting" onclick="apps.taskmgr.page('setting')" id="tsk-setting" style="position: relative;bottom:0px;left:0px;" win12_title="设置"><i class="bi bi-gear"></i><p>Set up</p></a>
+					<span class="focs" style="top: -445px; left: 0px;"></span>
+				</list>
+			</div>
+			<div class="main">
+				<div class="cnt processes show">
+					<div class="tit">
+						<p>进程</p>
+						<hr>
+					</div>
+					<table>
+						<thead>
+							<tr class="title">
+								<th>进程名称</th>
+								<th class="align-right" onclick="apps.taskmgr.changeSort(this.childNodes[0], 'cpu');"><i class="bi bi-chevron-down"></i><div class="value">11.4%</div>CPU</th>
+								<th class="align-right" onclick="apps.taskmgr.changeSort(this.childNodes[0], 'memory');"><i class="bi"></i><div class="value">11.4%</div>Memory</th>
+								<th class="align-right" onclick="apps.taskmgr.changeSort(this.childNodes[0], 'disk');"><i class="bi"></i><div class="value">11.4%</div>Hard Disk</th>
+								<th class="power">Power usage</th>
+							</tr>
+						</thead>
+						<tbody class="view">
+							<!-- 进程信息 -->
+						</tbody>
+					</table>
+				</div>
+				<div class="cnt 404">
+					<div class="content" style="text-align: center;position:absolute;left:calc(50% - 25px);top:calc(50% - 35px);">
+						<p><b>No filter results</b><br />Please try another name<span style="text-decoration:line-through" win12_title="你想让开发者秃头吗？QwQ！(双击隐藏此消息)" ondblclick="$(this).hide()">, publisher or PID </span>Type to filter.</p>
+						<br />
+						<a onclick="document.getElementById('tsk-search').value='';apps.taskmgr.generateProcesses()" style="cursor: pointer;color:var(--href);">Reset filter</a>
+					</div>
+				</div>
+				<div class="cnt performance">
+					<div class="tit">
+						<p>Performance</p>
+						<hr>
+					</div>
+					<div class="content">
+						<div class="select-menu">
+							<div onclick="apps.taskmgr.graph('graph-cpu')" class="graph-cpu check">
+								<div class="left">
+									<div class="graph-view-cpu"></div>
+								</div>
+								<div class="right">
+									<div class="tit">CPU</div>
+									<div class="data">
+										<div class="value1">11.4%</div>
+										<div class="value2">10GHz</div>
+									</div>
+								</div>
+							</div>
+							<div onclick="apps.taskmgr.graph('graph-memory');" class="graph-memory">
+								<div class="left">
+									<div class="graph-view-memory"></div>
+								</div>
+								<div class="right">
+									<div class="tit">Memory</div>
+									<div class="data">
+										<div class="value1">11.4 / 100GB</div>
+										<div class="value2">11.4%</div>
+									</div>
+								</div>
+							</div>
+							<div onclick="apps.taskmgr.graph('graph-disk');" class="graph-disk">
+								<div class="left">
+									<div class="graph-view-disk"></div>
+								</div>
+								<div class="right">
+									<div class="tit">Disk</div>
+									<div class="data">
+										<div class="tit">SSD</div>
+										<div class="value2">1.14%</div>
+									</div>
+								</div>
+							</div>
+							<div onclick="apps.taskmgr.graph('graph-wifi');" class="graph-wifi">
+								<div class="left">
+									<div class="graph-view-wifi"></div>
+								</div>
+								<div class="right">
+									<div class="tit">Wi-Fi</div>
+									<div class="data">
+										<div class="tit">WLAN</div>
+										<div class="value2">Send: 1145 Receive: 1145 Mbps</div>
+									</div>
+								</div>
+							</div>
+							<div onclick="apps.taskmgr.graph('graph-gpu');" class="graph-gpu">
+								<div class="left">
+									<div class="graph-view-gpu"></div>
+								</div>
+								<div class="right">
+									<div class="tit">GPU 0</div>
+									<div class="data">
+										<div class="tit">NBidia GeForce RTX 4090Ti</div>
+										<div class="value2">1%</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="performance-graph">
+							<div class="graph-cpu show">
+								<div class="tit">
+									<div class="left-name">CPU</div>
+									<div class="right-message">The Wandering Earth (R) NB (R) Quantum Chip 550W @ 8192</div>
+								</div>
+								<div class="graph-msg top">
+									<div class="left">% Utilization</div>
+									<div class="right">100%</div>
+								</div>
+								<div class="graph" win12_title="CPU活动">
+									<canvas class="bg" width="1920" height="1080"></canvas>
+									<canvas class="chart" width="1920" height="1080"></canvas>
+								</div>
+								<div class="graph-msg bottom">
+									<div class="left">60 秒</div>
+									<div class="right">0</div>
+								</div>
+								<div class="information">
+									<div class="left">
+										<div><div class="top">Utilization</div><div class="value">11.4%</div></div>
+										<div><div class="top">Speed</div><div class="value">1024.53 GHz</div></div>
+										<div><div class="top">Process</div><div class="value">1145</div></div>
+										<div><div class="top">Thread</div><div class="value">114514</div></div>
+										<div><div class="top">Handle</div><div class="value">114514191918</div></div>
+										<div><div class="top">Uptime</div><div class="value">0:11:45:14</div></div>
+									</div>
+									<div class="right">
+										<table>
+											<tbody>
+												<tr><td>Base speed: </td><td>10.0 GHz</td></tr>
+												<tr><td>Slot: </td><td>1</td></tr>
+												<tr><td>Kernel: </td><td>32</td></tr>
+												<tr><td>Logical processor: </td><td>32</td></tr>
+												<tr><td>Virtualization: </td><td>Activate</td></tr>
+												<tr><td>L1 cache: </td><td>512 MB</td></tr>
+												<tr><td>L2 cache: </td><td>2.1 GB</td></tr>
+												<tr><td>L3 cache: </td><td>5.5 GB</td></tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="graph-memory">
+								<div class="tit">
+									<div class="left-name">Memory</div>
+									<div class="right-message">100GB</div>
+								</div>
+								<div class="graph-msg top">
+									<div class="left">Memory usage</div>
+									<div class="right">100GB</div>
+								</div>
+								<div class="graph" win12_title="使用中">
+									<canvas class="bg" width="1920" height="1080"></canvas>
+									<canvas class="chart" width="1920" height="1080"></canvas>
+								</div>
+								<div class="graph-msg bottom">
+									<div class="left">60 秒</div>
+									<div class="right">0</div>
+								</div>
+								<div class="graph-msg top">
+									<div class="left">Memory combinatio</div>
+								</div>
+								<div class="graph memory2 minor" style="margin-bottom: 10px; border: 1px #660099 solid; height: 35px !important">
+									<canvas class="chart2" width="1280" height="35"></canvas>
+								</div>
+								<div class="information">
+									<div class="left">
+										<div><div class="top">In use (compressed)</div><div class="value">11.4 GB</div></div>
+										<div><div class="top">System</div><div class="value">88.6 GB</div></div>
+										<div><div class="top">Submitted</div><div class="value">12 / 100 GB</div></div>
+										<div><div class="top">Cached</div><div class="value">5.5 GB</div></div>
+										<div><div class="top">Paged pool</div><div class="value">1 GB</div></div>
+										<div><div class="top">Nonpaged pool</div><div class="value">365 MB</div></div>
+									</div>
+									<div class="right">
+										<table>
+											<tbody>
+												<tr><td>Speed: </td><td>4514MHz</td></tr>
+												<tr><td>Slot used: </td><td>2 / 2</td></tr>
+												<tr><td>Form factor: </td><td>Row of chips</td></tr>
+												<tr><td>Memory reserved for hardware:</td><td>200MB</td></tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="graph-disk">
+								<div class="tit">
+									<div class="left-name">Disk 0 (C: D:)</div>
+									<div class="right-message">NB++ 360G</div>
+								</div>
+								<div class="graph-msg top">
+									<div class="left">Active time</div>
+									<div class="right">100%</div>
+								</div>
+								<div class="graph" win12_title="磁盘处理读取或写入请求的时间百分比">
+									<canvas class="bg" width="1920" height="1080"></canvas>
+									<canvas class="chart" width="1920" height="1080"></canvas>
+								</div>
+								<div class="graph-msg bottom">
+									<div class="left">60 Second</div>
+									<div class="right">0</div>
+								</div>
+								<div class="graph-msg top">
+									<div class="left">Disk transfer rate</div>
+									<div class="right">100 MB/秒</div>
+								</div>
+								<div class="graph disk2 minor" style="margin-bottom: 10px; height: 70px !important; min-height: 70px !important;">
+									<canvas class="chart2" width="1920" height="280"></canvas>
+									<canvas class="bg2" width="1920" height="280"></canvas>
+								</div>
+								<div class="information">
+									<div class="left">
+										<div><div class="top">Active time</div><div class="value">1.14%</div></div>
+										<div><div class="top">Average response time</div><div class="value">0.014 millisecond</div></div>
+										<div style="border-left: 2px #008000 solid; padding-left: 10px;"><div class="top">Reading speed</div><div class="value">14 KB/秒</div></div>
+										<div style="border-left: 2px #008000 dotted; padding-left: 10px;"><div class="top">Writing speed</div><div class="value">114 KB/秒</div></div>
+									</div>
+									<div class="right">
+										<table>
+											<tbody>
+												<tr><td>Capacity: </td><td>359 GB</td></tr>
+												<tr><td>Formatted: </td><td>359 GB</td></tr>
+												<tr><td>System disk: </td><td>Yes</td></tr>
+												<tr><td>Page file: </td><td>Yes</td></tr>
+												<tr><td>Type: </td><td>SSD</td></tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="graph-wifi show">
+								<div class="tit">
+									<div class="left-name">Wi-Fi</div>
+									<div class="right-message">NB Wireless LAN 802.11ac</div>
+								</div>
+								<div class="graph-msg top">
+									<div class="left">Throughput</div>
+									<div class="right">100 Mbps</div>
+								</div>
+								<div class="graph" win12_title="此网络上的发送和接收活动">
+									<canvas class="bg" width="1920" height="1080"></canvas>
+									<canvas class="chart" width="1920" height="1080"></canvas>
+								</div>
+								<div class="graph-msg bottom">
+									<div class="left">60 Second</div>
+									<div class="right">0</div>
+								</div>
+								<div class="information">
+									<div class="left">
+										<div><div class="top">Send</div><div class="value">114 Mbps</div></div>
+										<div><div class="top">Receive</div><div class="value">114 Mbps</div></div>
+									</div>
+									<div class="right">
+										<table>
+											<tbody>
+												<tr>
+													<td>Adapter name: </td>
+													<td>WLAN</td>
+												</tr>
+												<tr>
+													<td>SSID: </td>
+													<td>NB Network</td>
+												</tr>
+												<tr>
+													<td>Connection Type: </td>
+													<td>802.11ac</td>
+												</tr>
+												<tr>
+													<td>IPv4 Address: </td>
+													<td>114.514.19.810</td>
+												</tr>
+												<tr>
+													<td>IPv6 Address: </td>
+													<td>2CBB::2CBB:2CBB:2CBB:2CBB</td>
+												</tr>
+												<tr>
+													<td>Signal strength: </td>
+													<td>
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="4.4 4.4 26.2 31.2" width="1.45em" height="1.4em">
+															<path d="M 5 25 L 5 35 L 10 35 L 10 25 L 5 25 M 10 20 L 10 35 L 15 35 L 15 20 L 10 20 M 15 15 L 20 15 L 20 35 L 15 35 L 15 15 M 20 10 L 25 10 L 25 35 L 20 35 L 20 10 M 25 5 L 25 35 L 30 35 L 30 5 L 25 5" stroke="#8e5829" stroke-width="0.6" fill="#8e582988"/>
+														</svg>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="graph-gpu">
+								<div class="tit">
+									<div class="left-name">GPU</div>
+									<div class="right-message">NBidia GeForce RTX 4090Ti</div>
+								</div>
+								<div class="graphs">
+									<canvas class="usage" width="1920" height="1080" style="display: none;"></canvas>
+									<div class="graph1">
+										<div class="title-gpu">3D</div>
+										<div class="chart">
+											<canvas class="bg" width="1920" height="1080"></canvas>
+											<canvas class="chart" width="1920" height="1080"></canvas>
+										</div>
+									</div>
+									<div class="graph2">
+										<div class="title-gpu">Copy</div>
+										<div class="chart">
+											<canvas class="bg" width="1920" height="1080"></canvas>
+											<canvas class="chart" width="1920" height="1080"></canvas>
+										</div>
+									</div>
+									<div class="graph3">
+										<div class="title-gpu">Video Decode</div>
+										<div class="chart">
+											<canvas class="bg" width="1920" height="1080"></canvas>
+											<canvas class="chart" width="1920" height="1080"></canvas>
+										</div>
+									</div>
+									<div class="graph4">
+										<div class="title-gpu">Video Processing</div>
+										<div class="chart">
+											<canvas class="bg" width="1920" height="1080"></canvas>
+											<canvas class="chart" width="1920" height="1080"></canvas>
+										</div>
+									</div>
+								</div>
+								<div class="graph-msg top">
+									<div class="left">Dedicated GPU memory utilization</div>
+									<div class="right">16 GB</div>
+								</div>
+								<div class="graph gpu2-1 minor" style="height: 70px !important; min-height: 70px !important;" win12_title="专用 GPU 内存利用率">
+									<canvas class="chart2" width="1920" height="280"></canvas>
+									<canvas class="bg2" width="1920" height="280"></canvas>
+								</div>
+								<div class="graph-msg top">
+									<div class="left">Shared GPU memory utilization</div>
+									<div class="right">32 GB</div>
+								</div>
+								<div class="graph gpu2-2 minor" style="height: 70px !important; min-height: 70px !important; margin-bottom: 10px" win12_title="共享 GPU 内存利用率">
+									<canvas class="chart2" width="1920" height="280"></canvas>
+									<canvas class="bg2" width="1920" height="280"></canvas>
+								</div>
+								<div class="information">
+									<div class="left">
+										<div><div class="top">Utilization</div><div class="value">1.1%</div></div>
+										<div><div class="top">Dedicated GPU memory</div><div class="value">0.1 GB / 2 GB</div></div>
+										<div><div class="top">Shared GPU memory</div><div class="value">1.1 GB / 16 GB</div></div>
+										<div><div class="top">GPU Memory</div><div class="value">1.2 / 18 GB</div></div>
+									</div>
+									<div class="right">
+										<table>
+											<tbody>
+												<tr>
+													<td>Driver version: </td>
+													<td>11.45.14.19</td>
+												</tr>
+												<tr>
+													<td>Driver date: </td>
+													<td>2023 / 4 / 1</td>
+												</tr>
+												<tr>
+													<td>DirectX Version</td>
+													<td>12 (FL 12.1)</td>
+												</tr>
+												<tr>
+													<td>Physical location: </td>
+													<td>PCI bus 0, Device 14, Function 0</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cnt setting">
+					<style>
+						/* 隐藏原始复选框 */
+						input[type="checkbox"] {
+							display: none;
+						}
+
+						/* 自定义复选框的外观 */
+						label {
+							display: inline-block;
+							position: relative;
+							padding-left: 25px;
+							margin-right: 10px;
+							cursor: pointer;
+						}
+
+						/* 复选框的外观 */
+						label:before {
+							content: "";
+							display: inline-block;
+							width: 18px;
+							height: 18px;
+							border: 1px solid #ccc;
+							border-radius: 3px;
+							background-color: #fff;
+							position: absolute;
+							left: 0;
+							top: 1px;
+						}
+
+						/* 复选框被选中时的外观 */
+						input[type="checkbox"]:checked + label:before {
+							background-color: #46afe4;
+						}
+
+						/* 复选框的勾选图标 */
+						label:after {
+							content: "\2713";
+							font-size: 14px;
+							color: #fff;
+							position: absolute;
+							left: 4px;
+							top: 0;
+							line-height: 18px;
+							display: none;
+						}
+
+						/* 复选框被选中时的勾选图标 */
+						input[type="checkbox"]:checked + label:after {
+							display: block;
+						}
+					</style>
+					<div class="tit">
+						<p>Set up</p>
+						<hr>
+					</div>
+					<div>
+						<h3>Window management</h3>
+						<input type="checkbox" id="tsk-setting-topmost" name="tsk-setting-topmost" style="height: 15px;width:15px;color:#fff;" onclick="if(checked){topmost[topmost.length]='taskmgr'}else{topmost.splice(topmost.indexOf('taskmgr',1))};hidewin('taskmgr');apps.taskmgr.page('processes');$('#win-taskmgr>.menu>list.focs>a')[0].click();saveDesktop();document.getElementById('tsk-search').value='';setTimeout('openapp(`taskmgr`);apps.taskmgr.generateProcesses();',300);"/><label for="tsk-setting-topmost" style="font-size: 15px;">置于顶层</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="data/tasks.js"></script>
+	<script src="desktop.js"></script>
+	<script src="module/tab.js"></script>
+	<script src="scripts/setting_getTime.js"></script><!-- 设置页面获取时间逻辑 @Junchen Yi 2023-9-17-->
+	<script src="https://fastly.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js" async></script>
+	<!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+	<script defer src="https://pyscript.net/latest/pyscript.js"></script> -->         <!-- PyScript, 已弃用 -->
+	<script src="https://cdn.staticfile.org/ace/1.23.0/ace.min.js"></script>
+	<script src="https://cdn.staticfile.org/ace/1.23.0/ext-language_tools.min.js"></script>
+	<script src="https://cdn.staticfile.org/ace/1.23.0/ext-error_marker.min.js"></script>
+	<script src='https://cdn.staticfile.org/big.js/6.2.1/big.min.js'></script>
+	<script src="./scripts/calculator_kernel.js"></script>
+	<script src='https://cdns.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js'></script>
+</body>
+
+</html>

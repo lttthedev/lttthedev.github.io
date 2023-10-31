@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 12 for the web - Solutions to network connection issues</title> <!-- 优化：修改页面标题以包含关键词 -->
+    <meta name="description" content="Windows 12 网页版网络连接问题解决方案。提供关于网络连接的帮助和建议。"> <!-- 优化：添加描述性 meta 标签 -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        html,body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: max(60%, 600px);
+            padding: 50px;
+        }
+
+        .container * {
+            margin: 20px 0;
+        }
+
+        .container .tit {
+            font-weight: 700;
+            font-size: 1.56em;
+            padding: 5px 0;
+        }
+
+        .container p.bold {
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        .container p.last {
+            font-size: 0.85em;
+            color: #888888;
+            margin-top: 30px;
+        }
+
+        .container ul {
+            list-style-position: inside;
+        }
+
+        .container>.pic {
+            width: 100px;
+            height: 100px;
+            background-image: url("apps/icons/edge/disconnected.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center; 
+            /* 优化：居中背景图像 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pic"></div>
+        <div class="tit">Network connection issues</div> <!-- 优化：更具体的标题 -->
+        <div class="content">
+            <p>The web is different for you. Let us help you get back online!</p>
+            <p class="bold">Please try the following:</p> <!-- 优化：更具体的建议 -->
+            <ul>
+                <li>Check network cables, modems, and routers</li>
+                <li>Reconnect to wireless network</li>
+            </ul>
+            <p class="last">Error code: ERR_INTERNET_DISCONNECTED</p> <!-- 优化：提供错误代码说明 -->
+        </div>
+    </div>
+</body>
+</html>

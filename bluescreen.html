@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- 添加有关网页的描述信息 -->
+    <meta name="description" content="Windows 12 Web Version - 一个开放源项目，提供对 Windows 12 的网络预览。">
+
+	<!-- Windows 12 网页版 谭景元原创  -->
+
+	<!-- Windows 12 网页版是一个开放源项目,
+	希望让用户在网络上预先体验 Windows 12,
+	内容可能与 Windows 12 正式版本不一致。
+	使用标准网络技术,例如 HTML、CSS 和 Javascript
+	此项目绝不附属于微软,且不应与微软操作系统或产品混淆,
+	这也不是 Windows365 cloud PC
+	本项目中微软、Windows和其他示范产品是微软公司的商标 -->
+	<link rel="stylesheet" href="./base.css" />
+	<base target="_blank">
+
+	<title>Windows 12 Web version</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: #005eaa;
+            cursor: none;
+        }
+        #box{
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            width: 70%;
+            left: 15%;
+            position: absolute;
+            height: 100%;
+            justify-content: center;
+        }
+        #happy-face{
+            color: #fff;
+            font-size: 150px;
+            margin: 0;
+            line-height: 1;
+            /* margin-left: -40px; */
+            margin-top: -10px;
+            height: 150px;
+            height: 150px;
+            display: flex;
+        }
+        #happy-face>*{
+            position: relative;
+            line-height: 0px;
+        }
+        @keyframes eyea{
+            0%{
+                top: -140px;
+                left: -40px;
+            }
+            15%{
+                top: -150px;
+                left: -60px;
+            }
+            25%{
+                top: -140px;
+                left: -40px;
+            }
+            35%{
+                top: -150px;
+                left: -20px;
+            }
+            50%{
+                top: -140px;
+                left: -40px;
+            }
+            85%{
+                top: -140px;
+                left: -40px;
+            }
+            95%{
+                top: -45px;
+                left: -40px;
+            }
+            /* 63%{
+                top: 0px;
+                left: 0;
+            } */
+        }
+        #happy-face>.eye.a{
+            top: -45px;
+            left: -40px;
+            animation: eyea 2s;
+        }
+        @keyframes eyeb{
+            0%{
+                top: -140px;
+                left: 14px;
+            }
+            15%{
+                top: -150px;
+                left: -6px;
+            }
+            25%{
+                top: -140px;
+                left: 14px;
+            }
+            35%{
+                top: -150px;
+                left: 34px;
+            }
+            50%{
+                top: -140px;
+                left: 24px;
+            }
+            90%{
+                top: -140px;
+                left: 24px;
+            }
+        }
+        #happy-face>.eye.b{
+            left: -76px;
+            top: -125px;
+            animation: eyeb 2s;
+        }
+        @keyframes mou{
+            0%{
+                transform: rotate(90deg);
+                top: 10px;
+                left: -60px;
+            }
+            15%{
+                transform: rotate(120deg);
+                top: -10px;
+                left: -80px;
+            }
+            25%{
+                transform: rotate(90deg);
+                top: 10px;
+                left: -60px;
+            }
+            35%{
+                transform: rotate(60deg);
+                top: -10px;
+                left: -20px;
+            }
+            50%{
+                transform: rotate(270deg);
+                top: 10px;
+                left: -80px;
+            }
+            80%{
+                transform: rotate(270deg);
+                top: -10px;
+                left: -80px;
+            }
+            90%{
+                transform: rotate(180deg);
+                top: -25px;
+                left: -60px;
+            }
+            /* 50%{
+                transform: rotate(180deg);
+                top: 20px;
+                left: 50px;
+            } */
+        }
+        #happy-face>.mouse{
+            transform: rotate(180deg);
+            top: -25px;
+            left: -60px;
+            animation: mou 2s;
+        }
+        #tx1{
+            color: #fff;
+            font-size: 23px;
+            margin-bottom: 5px;
+            margin-top: 50px;
+        }
+        #prog{
+            color: #fff;
+            font-size: 23px;
+        }
+        #dtx{
+            color: #fff;
+            margin-left: 20px;
+            font-size: 17px;
+            margin-top: 0;
+        }
+        #qr{
+            min-width: 150px;
+            width: 150px;
+            height: 150px;
+            fill: #005eaa;
+        }
+        #detail{
+            display: flex;
+        }
+        .link{
+            color: #efefef;
+            text-decoration: none;
+            transition: 100ms;
+            cursor: pointer;
+        }
+        .link:hover{
+            color: #aaa;
+        }
+    </style>
+    <div id="box">
+        <div id="happy-face">
+            <p class="eye a">.</p>
+            <p class="eye b">.</p>
+            <p class="mouse">)</p>
+        </div>
+        <p id="tx1">Your device has encountered a problem and needs to restart. <br>We only pretend to collect some error information and then reset the blue screen for you. </p>
+        <p id="prog"><span id="complete">0</span>% Finish</p>
+        <div id="detail">
+            <svg id="qr" xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" shape-rendering="crispEdges" viewBox="20 15 305 305";background-color:rgba(255, 255, 255, 1);"><rect x="42" y="37" width="9" height="63"/><rect x="42" y="109" width="9" height="18"/><rect x="42" y="136" width="9" height="18"/><rect x="42" y="163" width="18" height="9"/><rect x="42" y="181" width="9" height="18"/><rect x="42" y="217" width="36" height="9"/><rect x="42" y="235" width="9" height="63"/><rect x="51" y="37" width="54" height="9"/><rect x="51" y="91" width="54" height="9"/><rect x="51" y="109" width="9" height="9"/><rect x="51" y="145" width="9" height="9"/><rect x="51" y="172" width="9" height="9"/><rect x="51" y="235" width="54" height="9"/><rect x="51" y="289" width="54" height="9"/><rect x="60" y="55" width="27" height="27"/><rect x="60" y="118" width="18" height="9"/><rect x="60" y="136" width="9" height="9"/><rect x="60" y="181" width="9" height="9"/><rect x="60" y="199" width="9" height="9"/><rect x="60" y="253" width="27" height="27"/><rect x="69" y="127" width="72" height="9"/><rect x="69" y="145" width="9" height="9"/><rect x="69" y="190" width="9" height="9"/><rect x="69" y="208" width="9" height="18"/><rect x="78" y="109" width="27" height="9"/><rect x="78" y="154" width="9" height="27"/><rect x="78" y="208" width="9" height="9"/><rect x="87" y="145" width="18" height="9"/><rect x="87" y="190" width="9" height="18"/><rect x="96" y="46" width="9" height="54"/><rect x="96" y="163" width="9" height="9"/><rect x="96" y="181" width="45" height="9"/><rect x="96" y="199" width="9" height="9"/><rect x="96" y="217" width="18" height="9"/><rect x="96" y="244" width="9" height="54"/><rect x="105" y="118" width="9" height="27"/><rect x="105" y="154" width="18" height="9"/><rect x="105" y="172" width="9" height="18"/><rect x="105" y="208" width="9" height="18"/><rect x="114" y="37" width="9" height="36"/><rect x="114" y="82" width="9" height="18"/><rect x="114" y="163" width="18" height="9"/><rect x="114" y="190" width="9" height="18"/><rect x="114" y="226" width="27" height="9"/><rect x="114" y="244" width="9" height="18"/><rect x="114" y="280" width="9" height="18"/><rect x="123" y="55" width="9" height="36"/><rect x="123" y="136" width="9" height="9"/><rect x="123" y="190" width="9" height="9"/><rect x="123" y="235" width="27" height="9"/><rect x="123" y="253" width="18" height="18"/><rect x="123" y="289" width="9" height="9"/><rect x="132" y="64" width="9" height="54"/><rect x="132" y="154" width="9" height="9"/><rect x="132" y="199" width="9" height="9"/><rect x="132" y="271" width="9" height="18"/><rect x="141" y="46" width="27" height="9"/><rect x="141" y="100" width="9" height="9"/><rect x="141" y="145" width="9" height="9"/><rect x="141" y="163" width="9" height="18"/><rect x="141" y="217" width="36" height="9"/><rect x="141" y="244" width="9" height="9"/><rect x="141" y="262" width="9" height="18"/><rect x="150" y="55" width="18" height="27"/><rect x="150" y="91" width="9" height="9"/><rect x="150" y="109" width="18" height="9"/><rect x="150" y="136" width="9" height="9"/><rect x="150" y="154" width="18" height="18"/><rect x="150" y="181" width="27" height="9"/><rect x="150" y="208" width="27" height="27"/><rect x="150" y="271" width="45" height="9"/><rect x="150" y="289" width="27" height="9"/><rect x="159" y="37" width="9" height="45"/><rect x="159" y="118" width="9" height="18"/><rect x="159" y="145" width="9" height="27"/><rect x="159" y="190" width="9" height="54"/><rect x="159" y="262" width="9" height="36"/><rect x="168" y="73" width="9" height="36"/><rect x="168" y="118" width="27" height="9"/><rect x="168" y="136" width="9" height="18"/><rect x="168" y="172" width="9" height="18"/><rect x="168" y="199" width="9" height="36"/><rect x="168" y="244" width="9" height="9"/><rect x="177" y="37" width="18" height="9"/><rect x="177" y="55" width="9" height="18"/><rect x="177" y="127" width="9" height="18"/><rect x="177" y="154" width="9" height="27"/><rect x="177" y="190" width="18" height="9"/><rect x="177" y="226" width="18" height="9"/><rect x="186" y="82" width="9" height="27"/><rect x="186" y="163" width="9" height="9"/><rect x="186" y="181" width="9" height="63"/><rect x="186" y="253" width="9" height="27"/><rect x="195" y="46" width="9" height="18"/><rect x="195" y="82" width="9" height="9"/><rect x="195" y="109" width="9" height="9"/><rect x="195" y="181" width="9" height="9"/><rect x="195" y="208" width="9" height="18"/><rect x="195" y="280" width="9" height="9"/><rect x="204" y="37" width="9" height="9"/><rect x="204" y="91" width="9" height="9"/><rect x="204" y="127" width="18" height="9"/><rect x="204" y="199" width="9" height="18"/><rect x="204" y="226" width="9" height="18"/><rect x="204" y="253" width="9" height="9"/><rect x="204" y="271" width="18" height="9"/><rect x="213" y="55" width="9" height="9"/><rect x="213" y="73" width="18" height="9"/><rect x="213" y="100" width="9" height="90"/><rect x="213" y="208" width="27" height="18"/><rect x="213" y="262" width="9" height="18"/><rect x="222" y="46" width="9" height="9"/><rect x="222" y="64" width="9" height="54"/><rect x="222" y="136" width="18" height="9"/><rect x="222" y="154" width="9" height="9"/><rect x="222" y="172" width="9" height="27"/><rect x="222" y="226" width="9" height="36"/><rect x="231" y="118" width="9" height="36"/><rect x="231" y="172" width="9" height="9"/><rect x="231" y="253" width="45" height="9"/><rect x="240" y="37" width="9" height="63"/><rect x="240" y="118" width="9" height="18"/><rect x="240" y="145" width="9" height="27"/><rect x="240" y="190" width="9" height="18"/><rect x="240" y="217" width="27" height="9"/><rect x="240" y="235" width="9" height="9"/><rect x="240" y="262" width="9" height="36"/><rect x="249" y="37" width="54" height="9"/><rect x="249" y="91" width="54" height="9"/><rect x="249" y="109" width="9" height="18"/><rect x="249" y="145" width="9" height="18"/><rect x="249" y="181" width="9" height="18"/><rect x="249" y="262" width="9" height="9"/><rect x="249" y="280" width="36" height="9"/><rect x="258" y="55" width="27" height="27"/><rect x="258" y="118" width="9" height="18"/><rect x="258" y="154" width="9" height="18"/><rect x="258" y="190" width="9" height="18"/><rect x="258" y="226" width="9" height="36"/><rect x="258" y="271" width="9" height="27"/><rect x="267" y="109" width="36" height="9"/><rect x="267" y="127" width="9" height="27"/><rect x="267" y="163" width="27" height="9"/><rect x="267" y="181" width="27" height="9"/><rect x="267" y="199" width="27" height="9"/><rect x="267" y="226" width="18" height="18"/><rect x="267" y="262" width="27" height="9"/><rect x="276" y="118" width="9" height="18"/><rect x="276" y="145" width="9" height="27"/><rect x="276" y="190" width="18" height="18"/><rect x="276" y="244" width="18" height="9"/><rect x="276" y="271" width="9" height="18"/><rect x="285" y="145" width="9" height="9"/><rect x="285" y="172" width="9" height="45"/><rect x="285" y="271" width="18" height="9"/><rect x="285" y="289" width="9" height="9"/><rect x="294" y="46" width="9" height="54"/><rect x="294" y="127" width="9" height="9"/><rect x="294" y="190" width="9" height="9"/><rect x="294" y="235" width="9" height="9"/><rect x="294" y="253" width="9" height="9"/></svg>
+            <p id="dtx">For more information and possible solutions to this issue, please visit<br><a onclick="window.open('https:\/\/www.bilibili.com/video/BV1GJ411x7h7','_blank')" class="link" title="来自 Rick Astley 的警告：你确定要点击吗 :)">https://www.windows.com/stopcode?version=12.0&channel=Canary</a><br><br>If you call support, provide them with the following information:<br>Termination code: YOU_MAY_DID_NOT_STAR_THIS_PROJECT</p>
+        </div>
+    </div>
+    <script>
+        function sleep(millisecond, callback) {
+            setTimeout(callback, millisecond);
+        }
+        
+        function update_complete1() {
+            complete.innerText = (parseInt(complete.innerText) + 1).toString();
+        }
+
+        function update_complete2() {
+            complete.innerText = (parseInt(complete.innerText) - 1).toString();
+        }
+
+        function next_loop1() {
+            let i = parseInt(complete.innerText);
+            if (i < 20) {
+                sleep(300, function() {
+                    update_complete1();
+                    next_loop1();
+                });
+            }
+            else if (i < 60) {
+                sleep(200, function() {
+                    update_complete1();
+                    next_loop1();
+                });
+            }
+            else if (i < 80) {
+                sleep(100, function() {
+                    update_complete1();
+                    next_loop1();
+                });
+            }
+            else if (i < 100) {
+                sleep(50, function() {
+                    update_complete1();
+                    next_loop1();
+                });
+            }
+            else {
+                next_loop2();
+            }
+        }
+
+        function next_loop2() {
+            let i = parseInt(complete.innerText);
+            if (i > 0) {
+                sleep(10, function() {
+                    update_complete2();
+                    next_loop2();
+                });
+            }
+            else {
+                window.location.reload();
+            }
+        }
+
+        let complete = document.getElementById("complete");
+        next_loop1();
+    </script>
+</body>
+</html>

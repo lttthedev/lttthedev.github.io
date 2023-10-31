@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 更改页面标题以提高搜索引擎可搜索性 -->
+    <title>Windows 12 BIOS Setup</title>
+    <!-- 使用相对路径引用外部CSS文件 -->
+    <link rel="stylesheet" href="./apps/style/bios.css">
+</head>
+
+<body id="body" scroll="no">
+    <div id="exit_confirm" style="display:none;background-color: white;padding-top: 20px;padding-bottom: 20px;padding-left: 10px;padding-right: 10px;position: absolute;left:35%;top:42.5%;/**/box-shadow: 8px 16px 0px 0px #000;z-index:1919810;">
+        <div id="confirm" style="background-color: white; color:black;border:3.5px solid #000; padding: 5px;display: flex;flex-direction: column;">
+            <p style="text-align: center;margin-top: 15px;flex: 35;flex: 25;" id="confirm-tit"> Save configuration changes and exit now? </p>
+            <div style="flex: 1;"></div>
+            <div style="display: flex;align-items: center;justify-content: center;flex: 25;">
+                <a class="confirm-button" id="ok-btn" style="background-color: #000;color: #fff;" click="eval(code)">[OK]</a>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <a class="confirm-button" style="color: #000;background-color: #fff;" click="document.getElementById('exit_confirm').style.display = 'none';document.getElementById('background').style.display = 'none';" id="cancel-btn">[Cancel]</a>
+            </div>
+        </div>
+    </div>
+    <div style="position: absolute;background-color: rgba(11,45,14,0);top:0;left:0;width:100%;height:100%;display: none;z-index:114514;" id="background"></div>
+
+    <nav>
+        <p class="tit">BIOS Setup Utility</p>
+    </nav>
+    <nav class="pages" style="padding-left: 15px;">
+        <a class="page" id="main" click="tab=0; ChangePage()" ontouchstart="tab=0; ChangePage()">Main</a>
+        <a class="page" id="exit" click="tab=1; ChangePage()" ontouchstart="tab=1; ChangePage()">Exit</a>
+    </nav>
+
+    <div id="mainPage">
+        <table class="option" style="cursor: none;">
+            <tr>
+                <td>
+                    System Time:
+                </td>
+                <td style="width:10px;"></td>
+                <td id="time">
+                    [11:45:14]
+                </td>
+            </tr>
+            <tr style="height:10px;"></tr>
+            <tr>
+                <td>
+                    System Date:
+                </td>
+                <td style="width:10px;"></td>
+                <td id="date">
+                    [10/08/1919]
+                </td>
+                <!-- 注意：这里的日期为[日/月/年] -->
+            </tr>
+        </table>
+    </div>
+
+    <div id="exitPage" style="display: flex; gap: 10px; flex-direction: column;">
+        <div click="BIOS_confirm(' Save configuration changes and exit now? ','toBoot()',30)" ontouchstart="BIOS_confirm(' Save configuration changes and exit now? ','toBoot()',30)" class="exit" id="e1">Exit Saving Changes</div>
+        <div click="BIOS_confirm(' Discard changes and exit setup? ','toBoot()',25);" ontouchstart="BIOS_confirm(' Discard changes and exit setup? ','toBoot()',25);" class="exit" id="e2">Exit Discarding Changes</div>
+        <div click="BIOS_confirm('  Restore default setup?  ','document.getElementById(`exit_confirm`).style.display = `none`;document.getElementById(`background`).style.display = `none`;',18);" ontouchstart="BIOS_confirm('  Restore default setup?  ','document.getElementById(`exit_confirm`).style.display = `none`;document.getElementById(`background`).style.display = `none`;',18);" class="exit" id="e3">Restore Defaults</div>
+    </div>
+
+    <!-- 使用相对路径引用JavaScript文件 -->
+    <script src="scripts/bios_kernel.js"></script>
+</body>
+
+</html>
