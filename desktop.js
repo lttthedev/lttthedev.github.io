@@ -96,7 +96,7 @@ let cms = {
     'desktop': [
         ['<i class="bi bi-arrow-clockwise"></i> Refresh', `$('#desktop').css('opacity','0');setTimeout(()=>{$('#desktop').css('opacity','1');},100);setIcon();`],
         ['<i class="bi bi-circle-square"></i> Switch theme', 'toggletheme()'],
-        `<a onmousedown="window.open('https://github.com/tjy-gitnub/win12','_blank');" win12_title="https://github.com/tjy-gitnub/win12" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)"><i class="bi bi-github"></i> View this project in Github</a>`,
+        `<a onmousedown="window.open('https://github.com/lttthedev/lttthedev.github.io','_blank');" win12_title="https://github.com/lttthedev/lttthedev.github.io" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)"><i class="bi bi-github"></i> View this project in Github</a>`,
         function (arg) {
             if (edit_mode) {
                 return ['<i class="bi bi-pencil"></i> Exit edit mode', 'editMode();'];
@@ -505,7 +505,7 @@ let nts = {
         cnt: `<p class="tit">Feedback</p>
             <p>We attach great importance to user experience and feedback</p>
             <list class="new">
-                <a class="a" onclick="window.open('https://github.com/tjy-gitnub/win12/issues','_blank');" win12_title="Open link in new browser window" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)">Submit an issue on github (a github account is required and will receive higher attention)</a>
+                <a class="a" onclick="window.open('https://github.com/lttthedev/lttthedev.github.io/issues','_blank');" win12_title="Open link in new browser window" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)">Submit an issue on github (a github account is required and will receive higher attention)</a>
                 <a class="a" onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__SDw7SZURjUzOUo0VEVXU1pMWlFTSUVGWDNYWU1EWS4u','_blank');" win12_title="Open link in new browser window" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)">Send feedback on Microsoft Forms (no account required, will be taken seriously)</a>
             </list>`,
         btn: [
@@ -592,7 +592,7 @@ let nts = {
         cnt: `<p class="tit">Feedback Windows 12 Copilot</p>
         <p>We attach great importance to user experience and feedback, and we are very grateful for your suggestions on AI Copilot</p>
         <list class="new">
-            <a class="a" onclick="window.open('https://github.com/tjy-gitnub/win12/issues','_blank');" win12_title="Open link in new browser window" onmouseenter ="showdescp(event)" onmouseleave="hidedescp(event)">Submit an issue on github (a github account is required and will receive higher attention)</a>
+            <a class="a" onclick="window.open('https://github.com/lttthedev/lttthedev.github.io/issues','_blank');" win12_title="Open link in new browser window" onmouseenter ="showdescp(event)" onmouseleave="hidedescp(event)">Submit an issue on github (a github account is required and will receive higher attention)</a>
             " Open the link" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)">Send feedback on Microsoft Forms (no account required, will be taken seriously)</a>
         </list>
             `,
